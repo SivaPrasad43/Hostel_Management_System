@@ -1,0 +1,14 @@
+.background-bg{
+    background-color: rgb(240, 240, 240);
+}
+
+.important::after{
+    content: ' *';
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+}
+
+input, select, textarea{
+    border: 1px solid rgb(143, 143, 143) !important;
+}
