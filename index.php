@@ -199,7 +199,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6">  
                         <div class="my-3">
                             <label for="aIncome" class="form-label important">Annual Income</label>
                             <input type="text" class="form-control" id="aIncome" name="aIncome"
@@ -212,12 +212,12 @@
                             <div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="obcOrOec" id="obcOrOecYes"
-                                        value="obcOrOecYes">
+                                        value="Yes">
                                     <label class="form-check-label" for="male">Yes</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="obcOrOec" id="obcOrOecNo"
-                                        value="obcOrOecNo">
+                                        value="No">
                                     <label class="form-check-label" for="female">No</label>
                                 </div>
                             </div>
@@ -347,7 +347,7 @@
                     // Update the content of the distanceResult div with the response from PHP
                     document.getElementById('distanceResult').innerHTML = 'Distance: ' + xhr.responseText;
                     var calculatedDistance = xhr.responseText;
-                    document.getElementById('distance').value = calculatedDistance + ' km';
+                    document.getElementById('distance').value = calculatedDistance;
                 
                 } else {
                     // Handle the error case (e.g., display an error message)
