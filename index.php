@@ -138,6 +138,14 @@
                     </div>
                     <div class="col-md-6">
                         <div class="my-3">
+                            <label for="pincode" class="form-label important">Enter PIN Code</label>
+                            <input type="text" class="form-control" id="pincode" name="pincode" 
+                            placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code">
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="my-3">
                             <label for="mobile" class="form-label important">Your Mobile Number</label>
                             <input type="phone" class="form-control" id="mobile" name="mobile"
                                 placeholder="Enter your Phone Number">
@@ -160,10 +168,10 @@
                     <div class="col-md-6">
                         <div class="my-3">
                             <label for="priority" class="form-label important">Priority to which the applicant belongs :
-                                Priority I — Other States/Central Govt.
+                                <br>Priority I — Other States/Central Govt.
                                 Nominees
-                                Priority 11 - SC/ST/PH/BPL
-                                (Priority 11 students must attach copy of
+                                <br>Priority II - SC/ST/PH/BPL
+                               <br>(Priority  II students must attach copy of
                                 roof)Whether belongs to OBC/OEC?</label>
                             <div>
                                 <div class="form-check form-check-inline">
