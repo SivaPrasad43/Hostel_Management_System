@@ -144,25 +144,52 @@ include "../data_fetch.php";
 
             <div class="report-container">
                 <div class="report-header">
-                    <h1 class="recent-Articles">Recent Articles</h1>
-                    <button class="view">View All</button>
+                    <h1 class="recent-Articles">Alloted Students</h1>
+                    <button class="view">Download</button>
                 </div>
 
                 <div class="report-body">
                     <div class="report-topic-heading">
-                        <h3 class="t-op">Article</h3>
-                        <h3 class="t-op">Views</h3>
-                        <h3 class="t-op">Comments</h3>
-                        <h3 class="t-op">Status</h3>
+                        <h3 class="t-op">Name</h3>
+                        <h3 class="t-op">Admission number</h3>
+                        <h3 class="t-op">Year of study</h3>
+                        <h3 class="t-op">semester</h3>
+                        <h3 class="t-op">branch</h3>
                     </div>
 
+<!-- Add the following code after the existing PHP includes -->
+<!-- Add the following code after the existing PHP includes -->
+<?php
+// Assuming $connection is your database connection variable
 
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 65</h3>
-                            <h3 class="t-op-nextlvl">1.3k</h3>
-                            <h3 class="t-op-nextlvl">220</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
+// Fetch data from the database
+$query = "SELECT name, admissionNo, semester, branch, yearOfStudy FROM hostel_student_list";
+$result = mysqli_query($conn, $query);
+
+// Check if the query was successful
+if ($result) {
+    // Loop through each row in the result set
+    while ($row = mysqli_fetch_assoc($result)) {
+        // Output the data in the HTML structure for each row
+        echo '<div class="item1">';
+        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['name']) . '</h3>';
+        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['admissionNo']) . '</h3>';
+        
+        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['yearOfStudy']) . '</h3>';
+        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['semester']) . '</h3>';
+        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['branch']) . '</h3>';
+        echo '</div>';
+    }
+} else {
+    // Handle the case where the query fails
+    echo 'Error fetching data: ' . mysqli_error($connection);
+}
+
+// Close the database connection
+// mysqli_close($connection);
+?>
+
+
 
                     </div>
                 </div>

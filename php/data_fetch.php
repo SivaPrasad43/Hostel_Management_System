@@ -26,7 +26,7 @@ if ($result1) {
 
 
 // Close the database connection
-mysqli_close($conn);
+// mysqli_close($conn);
 ?>
 
 
