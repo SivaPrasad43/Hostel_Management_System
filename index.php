@@ -60,36 +60,36 @@
                     </div>
                     <div class="col-md-6">
                         <div class="my-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="course" class="form-label important">Degree</label>
-                                    <select class="form-select" id="degree" name="degree">
-                                        <option value="" selected>Select your course</option>
-                                        <option value="math">B.Tech</option>
-                                        <option value="science">M.Tech</option>
-                                        <option value="history">MCA</option>
-                                        <!-- <option value="english">English</option> -->
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yearOfStudy" class="form-label important">Year of Study</label>
-                                    <select class="form-select" id="yearList" name="yearOfStudy">
-                                        <option value="" selected>Select Year</option>
-                                        <!-- JavaScript will populate this list dynamically -->
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="course" class="form-label important">Degree</label>
+                            <select class="form-select" id="degree" name="degree">
+                                <option value="" selected>Select your course</option>
+                                <option value="math">B.Tech</option>
+                                <option value="science">M.Tech</option>
+                                <option value="history">MCA</option>
+                                <!-- <option value="english">English</option> -->
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="my-3">
-                            <div class="my-3">
-                                <label for="admissionNo" class="form-label important">Admission Number</label>
-                                <input type="text" class="form-control" id="admissionNo" name="admissionNo"
-                                    placeholder="Enter Admission Number">
-                            </div>
+                            <label for="yearOfStudy" class="form-label important">Year of Study</label>
+                            <select class="form-select" id="yearList" name="yearOfStudy">
+                                <option value="" selected>Select year</option>
+                                <option value="1">first year</option>
+                                <option value="2">second year</option>
+                                <option value="3">third year</option>
+                                <option value="4">fourth year</option>
+                            </select>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="my-3">
+                            <label for="admissionNo" class="form-label important">Admission Number</label>
+                            <input type="text" class="form-control" id="admissionNo" name="admissionNo"
+                                placeholder="Enter Admission Number">
+                        </div>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="my-3">
                             <label for="semester" class="form-label important">Semester</label>
@@ -142,7 +142,8 @@
                             <label for="pincode" class="form-label important">Enter PIN Code</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="pincode" name="pincode"
-                                    placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code" required>
+                                    placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code"
+                                    required>
                                 <button type="button" class="btn btn-primary" id="calculateDistanceButton"
                                     onclick="calculateDistance()">Calculate Distance</button>
                             </div>
@@ -199,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">  
+                    <div class="col-md-6">
                         <div class="my-3">
                             <label for="aIncome" class="form-label important">Annual Income</label>
                             <input type="text" class="form-control" id="aIncome" name="aIncome"
@@ -310,21 +311,6 @@
     }
 
 
-    // JavaScript to dynamically generate a list of years
-    document.addEventListener('DOMContentLoaded', function() {
-        var currentYear = new Date().getFullYear();
-        var selectYearList = document.getElementById('yearList');
-
-        // Populate the list with years from the current year to 10 years in the past
-        for (var year = currentYear; year >= currentYear - 10; year--) {
-            var option = document.createElement('option');
-            option.value = year;
-            option.text = year;
-            selectYearList.add(option);
-        }
-    });
-
-
 
     function calculateDistance() {
         var pincode = document.getElementById('pincode').value;
@@ -348,7 +334,7 @@
                     document.getElementById('distanceResult').innerHTML = 'Distance: ' + xhr.responseText;
                     var calculatedDistance = xhr.responseText;
                     document.getElementById('distance').value = calculatedDistance;
-                
+
                 } else {
                     // Handle the error case (e.g., display an error message)
                     console.error('Error in AJAX request');
