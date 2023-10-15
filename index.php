@@ -136,14 +136,24 @@
                                 placeholder="Enter your Guardian Address"></textarea>
                         </div>
                     </div>
+                    <!-- Add a button for calculating distance -->
                     <div class="col-md-6">
                         <div class="my-3">
                             <label for="pincode" class="form-label important">Enter PIN Code</label>
-                            <input type="text" class="form-control" id="pincode" name="pincode" 
-                            placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code">
-
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="pincode" name="pincode"
+                                    placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code" required>
+                                <button type="button" class="btn btn-primary" id="calculateDistanceButton"
+                                    onclick="calculateDistance()">Calculate Distance</button>
+                            </div>
                         </div>
+                        <!-- Display the distance result here -->
+                        <div id="distanceResult" class="mt-2"></div>
+                        <!-- Display the loading message here -->
+                        <div id="loadingMessage" class="mt-2" style="display: none;">Please wait...</div>
                     </div>
+
+
                     <div class="col-md-6">
                         <div class="my-3">
                             <label for="mobile" class="form-label important">Your Mobile Number</label>
@@ -171,7 +181,7 @@
                                 <br>Priority I — Other States/Central Govt.
                                 Nominees
                                 <br>Priority II - SC/ST/PH/BPL
-                               <br>(Priority  II students must attach copy of
+                                <br>(Priority II students must attach copy of
                                 roof)Whether belongs to OBC/OEC?</label>
                             <div>
                                 <div class="form-check form-check-inline">
@@ -215,11 +225,11 @@
                     </div>
                     <div class="col-md-6">
                         <div class="my-3">
-                            <label for="distance" class="form-label important">Minimum Google distance from the Post
+                            <label for="distance" class="form-label important">Minimum distance from the Post
                                 Office in the address specified in the Adhaar
                                 Card to RIT Pampady, Kottayam</label>
                             <input type="text" class="form-control" id="distance" name="distance"
-                                placeholder="Minimum Google distance">
+                                placeholder="Calculated Distance" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -313,6 +323,43 @@
             selectYearList.add(option);
         }
     });
+
+
+
+    function calculateDistance() {
+        var pincode = document.getElementById('pincode').value;
+
+        // Display the loading message
+        document.getElementById('loadingMessage').style.display = 'block';
+        // Hide the distance result
+        document.getElementById('distanceResult').style.display = 'none';
+
+        // Make an AJAX request to your PHP script
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                // Hide the loading message
+                document.getElementById('loadingMessage').style.display = 'none';
+
+                if (xhr.status === 200) {
+                    // Show the distance result
+                    document.getElementById('distanceResult').style.display = 'block';
+                    // Update the content of the distanceResult div with the response from PHP
+                    document.getElementById('distanceResult').innerHTML = 'Distance: ' + xhr.responseText;
+                    var calculatedDistance = xhr.responseText;
+                    document.getElementById('distance').value = calculatedDistance + ' km';
+                
+                } else {
+                    // Handle the error case (e.g., display an error message)
+                    console.error('Error in AJAX request');
+                }
+            }
+        };
+
+        // Replace 'your_php_script.php' with the actual path to your PHP script
+        xhr.open('GET', 'php/distance_calculate.php?pincode=' + pincode, true);
+        xhr.send();
+    }
     </script>
 
 </body>

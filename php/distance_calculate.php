@@ -1,9 +1,10 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // Get the ZIP codes from the POST request
-    $zipCode1 = $_POST['zip_code_1'];
-    $zipCode2 = $_POST['zip_code_2'];
+    $zipCode1 = isset($_GET['pincode']) ? $_GET['pincode'] : '';
+
+    $zipCode2 = 686501;
 
     // Get coordinates for ZIP code 1
     $coordinates1 = getGeocode($zipCode1);
@@ -17,11 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Convert the distance to kilometers
         $distanceInKilometers = milesToKilometers($distanceInMiles);
-
-        echo "<div class='container mt-5'>";
-        echo "<p>The distance between ZIP codes $zipCode1 and $zipCode2 is approximately ";
-        echo "{$distanceInMiles} miles (or {$distanceInKilometers} kilometers).</p>";
-        echo "</div>";
+        
+        echo "{$distanceInKilometers} km";
     } else {
         echo "Error getting geocode information for one or both ZIP codes.";
     }
