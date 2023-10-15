@@ -23,12 +23,12 @@
             justify-content: center;
         }
         .btn-student.active {
-            background-color: #007bff; /* Blue color for active "Student" button */
-            color: #fff; /* Text color for active button */
+            background-color: #007bff; 
+            color: #fff; 
         }
         .btn-admin.active {
-            background-color: #007bff; /* Blue color for active "Administrator" button */
-            color: #fff; /* Text color for active button */
+            background-color: #007bff; 
+            color: #fff; 
         }
         .form-group {
             margin-bottom: 20px;
@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="login-container">
+        <div class="login-container"> 
             <h2 id="login-title">Students Login</h2>
             <div class="role-toggle btn-group my-3" data-toggle="buttons">
                 <label class="btn btn-student active" id="student-button">
@@ -60,7 +60,6 @@
     </div>
 
     <script>
-        // JavaScript to add the "active" class to the selected role button
         const studentButton = document.getElementById('student-button');
         const adminButton = document.getElementById('admin-button');
         const loginTitle = document.getElementById('login-title');
