@@ -1,68 +1,71 @@
 <?php
-// Include your connection.php file
-include '../connection/connection.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Establish a connection to your MySQL database
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "hostel";
 
-// Check if the form is submitted
-if (isset($_POST['submit'])) {
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Function to clean and validate data
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
+    // Check the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    // Escape user inputs to prevent SQL injection
-    $name = test_input($_POST['name']);
-    $gender = test_input($_POST['gender']);
-    $degree = test_input($_POST['degree']);
-    $yearOfStudy = test_input($_POST['yearOfStudy']);
-    $admissionNo = test_input($_POST['admissionNo']);
-    $semester = test_input($_POST['semester']);
-    $branch = test_input($_POST['branch']);
-    $pAddress = test_input($_POST['pAddress']);
-    $gAddress = test_input($_POST['gAddress']);
-    $mobile = test_input($_POST['mobile']);
-    $gMobile = test_input($_POST['gMobile']);
-    $prAddress = test_input($_POST['prAddress']);
-    $priority = isset($_POST['p1']) ? 'p1' : (isset($_POST['p2']) ? 'p2' : 'other');
-    $aIncome = test_input($_POST['aIncome']);
-    $obcOrOec = isset($_POST['obcOrOec']) ? 'obcOrOecYes' : 'obcOrOecNo';
-    $googleDistance = test_input($_POST['distance']);
-    $sgpa1 = test_input($_POST['sgpa1']);
-    $sgpa2 = test_input($_POST['sgpa2']);
-    $sgpa3 = test_input($_POST['sgpa3']);
-    $sgpa4 = test_input($_POST['sgpa4']);
-    $sgpa5 = test_input($_POST['sgpa5']);
-    $sgpa6 = test_input($_POST['sgpa6']);
-    $sgpa7 = test_input($_POST['sgpa7']);
-    $sgpa8 = test_input($_POST['sgpa8']);
-    $rank = test_input($_POST['rank']);
-    $disciplinaryAction = test_input($_POST['dAction']);
+    // Extract form data
+    $name = $_POST['name'];
+    $gender = $_POST['gender'];
+    $degree = $_POST['degree'];
+    $yearOfStudy = $_POST['yearOfStudy'];
+    $admissionNo = $_POST['admissionNo'];
+    $semester = $_POST['semester'];
+    $branch = $_POST['branch'];
+    $pAddress = $_POST['pAddress'];
+    $gAddress = $_POST['gAddress'];
+    $pincode = $_POST['pincode'];
+    $mobile = $_POST['mobile'];
+    $gMobile = $_POST['gMobile'];
+    $prAddress = $_POST['prAddress'];
+    $p1 = isset($_POST['p1']) ? 1 : 0;
+    $p2 = isset($_POST['p2']) ? 1 : 0;
+    $other = isset($_POST['other']) ? 1 : 0;
+    $aIncome = $_POST['aIncome'];
+    $obcOrOec = $_POST['obcOrOec'];
+    $distance = $_POST['distance'];
+    $sgpa1 = $_POST['sgpa1'];
+    $sgpa2 = $_POST['sgpa2'];
+    $sgpa3 = $_POST['sgpa3'];
+    $sgpa4 = $_POST['sgpa4'];
+    $sgpa5 = $_POST['sgpa5'];
+    $sgpa6 = $_POST['sgpa6'];
+    $sgpa7 = $_POST['sgpa7'];
+    $sgpa8 = $_POST['sgpa8'];
+    $rank = $_POST['rank'];
+    $dAction = $_POST['dAction'];
 
-    // Convert null values to 0
-    
-    // Use prepared statements to prevent SQL injection
-    // Prepare the statement
-    $sql = $conn->prepare("INSERT INTO `hostel_admission` (`name`, `gender`, `degree`, `yearOfStudy`, `admissionNo`, `semester`, `branch`, `pAddress`, `gAddress`, `mobile`, `gMobile`, `prAddress`, `priority`, `aIncome`, `obcOrOec`, `googleDistance`, `sgpa1`, `sgpa2`, `sgpa3`, `sgpa4`, `sgpa5`, `sgpa6`, `sgpa7`, `sgpa8`, `rank`, `disciplinaryAction`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+   // Prepare and execute SQL query
+$sql = "INSERT INTO hostel_student_registration(name, gender, degree, yearOfStudy, admissionNo, semester, branch, pAddress, gAddress, pincode, mobile, gMobile, prAddress, p1, p2, other, aIncome, obcOrOec, distance, sgpa1, sgpa2, sgpa3, sgpa4, sgpa5, sgpa6, sgpa7, sgpa8, rank, dAction) VALUES 
+('$name', '$gender', '$degree', '$yearOfStudy', '$admissionNo', '$semester', '$branch', '$pAddress', '$gAddress', '$pincode', '$mobile', '$gMobile', '$prAddress', '$p1', '$p2', '$other', '$aIncome', '$obcOrOec', '$distance', '$sgpa1', '$sgpa2', '$sgpa3', '$sgpa4', '$sgpa5', '$sgpa6', '$sgpa7', '$sgpa8', '$rank', '$dAction')";
 
-    if (!$sql) {
-        die("Error in SQL query: " . $conn->error);
-    }
 
-    // Bind parameters is not needed in this case
-
-    // Execute the statement
-    if ($sql->execute()) {
-        echo "Record inserted successfully";
-    } else {
-        echo "Error: " . $sql->error;
-    }
-
-    // No need to close the statement; it's done automatically when the script finishes.
+if($conn->query($sql) === TRUE){
+	?>
+	<script>
+		if(window.confirm('Registration succsesfully'))
+		{
+			window.location.href='index.html';
+		};</script>
+	<?php
 }
-
-// Close the database connection
-$conn->close();
+else{
+	?>
+	<script>
+		if(window.confirm('Oops!!!!!  Registration  failed '))
+		{
+			window.location.href='index.html';
+		};</script>
+	<?php
+}
+}
 ?>
