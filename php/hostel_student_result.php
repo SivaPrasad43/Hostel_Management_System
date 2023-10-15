@@ -23,12 +23,14 @@ foreach ($data as $key => $value) {
 }
 
 // Formulate the SQL query
-$sql = "INSERT INTO hostel_student_list (`name`, `gender`, `degree`, `yearOfStudy`, `admissionNo`, `semester`, `branch`, `pAddress`, `gAddress`, `pincode`, `mobile`)
+$sql = "INSERT IGNORE INTO hostel_student_list (`name`, `gender`, `degree`, `yearOfStudy`, `admissionNo`, `semester`, `branch`, `pAddress`, `gAddress`, `pincode`, `mobile`)
         VALUES ('$data[name]', '$data[gender]', '$data[degree]', '$data[yearOfStudy]', '$data[admissionNo]', '$data[semester]', '$data[branch]', '$data[pAddress]', '$data[gAddress]', '$data[pincode]', '$data[mobile]')";
+
+$sql1= "INSERT IGNORE INTO login (`username`,`password`,`user_type`) VALUES ('$data[admissionNo]','$data[admissionNo]','student')";
 
 // Execute the query
 $conn->query($sql);
-
+$conn->query($sql1);
 // Check for errors
 if ($conn->error) {
     echo "Error: " . $conn->error;
