@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <?php include './component/header.php' ?>
+    <!-- <?php include './component/header.php' ?> -->
     <div class="section background-bg py-5">
         <h2 class="text-center pt-2 pb-3">Application for admission to RIT Hostels for the period 2023-24</h2>
         <div class="container col-lg-8 p-md-5 p-3 mt-3 border border-2 rounded-3 bg-light shadow">
-            <form action="./php/hostel_application_form.php" method="post">
+            <form action="hostel_application_form.php" method="post">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
@@ -143,7 +143,7 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="pincode" name="pincode"
                                     placeholder="Enter PIN Code" pattern="[0-9]{6}" title="Enter a 6-digit PIN Code"
-                                    required>
+                                    >
                                 <button type="button" class="btn btn-primary" id="calculateDistanceButton"
                                     onclick="calculateDistance()">Calculate Distance</button>
                             </div>
@@ -294,7 +294,7 @@
             </form>
         </div>
     </div>
-    <?php include './component/footer.php' ?>
+    <!-- <?php include './component/footer.php' ?> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
@@ -343,7 +343,7 @@
         };
 
         // Replace 'your_php_script.php' with the actual path to your PHP script
-        xhr.open('GET', 'php/distance_calculate.php?pincode=' + pincode, true);
+        xhr.open('GET', 'distance_calculate.php?pincode=' + pincode, true);
         xhr.send();
     }
     </script>

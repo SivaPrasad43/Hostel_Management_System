@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <script>
             if (window.confirm('You are already registered'))
             {
-                window.location.href='index.html';
+                window.location.href='../login.php';
             };
         </script>
         <?php
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <script>
                 if (window.confirm('Registration successfully'))
                 {
-                    window.location.href='index.html';
+                    window.location.href='../login.php';
                 };
             </script>
             <?php
@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <script>
                 if (window.confirm('Oops!!!!!  Registration  failed '))
                 {
-                    window.location.href='index.html';
+                    window.location.href='../login.php';
                 };
             </script>
             <?php

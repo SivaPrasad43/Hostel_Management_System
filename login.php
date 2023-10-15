@@ -62,7 +62,10 @@
                 <input type="hidden" name="role" id="selectedRole" value="student"> <!-- Default role is student -->
                 <button type="submit" class="btn btn-primary btn-block" onclick="setRole()">Login</button>
             </form>
+            <p class="mt-3"><a href="php/hoste_student_registration.php">Register here</a></p>
+
         </div>
+        
     </div>
 
     <script>
