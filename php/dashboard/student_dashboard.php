@@ -14,7 +14,6 @@ session_start(); // Start the session
 				initial-scale=1.0">
     <title>RIT Hostel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/dash-style.css">
     <link rel="stylesheet" href="../../style/responsive.css">
 </head>
@@ -84,65 +83,68 @@ session_start(); // Start the session
                 </div>
             </div>
 
-            <div class="dashboard-items-container">             
-                            <div class="food-card">
-                                <h2 class="food-title">Today's Menu</h2>
-                                <div class="food-details">
-                                    <div class="food-item had-food-success">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Breakfast:</span>
-                                        </div>
-                                        <div class="food-name">Uppumavu</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">✓</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Launch:</span>
-                                        </div>
-                                        <div class="food-name">Meals</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Evening:</span>
-                                        </div>
-                                        <div class="food-name">Pazhampori</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Dinner:</span>
-                                        </div>
-                                        <div class="food-name">Kanji</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                </div>
+            <div class="dashboard-items-container">
+                <div class="food-card">
+                    <h2 class="food-title">Today's Menu</h2>
+                    <div class="food-details">
+                        <div class="food-item had-food-success">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Breakfast:</span>
                             </div>
-                            <div>
-                                <div class="attendance-section">
-                                    <h2 class="attendance-title">Mark Attendance</h2>
-                                    <div class="attendance-buttons">
-                                        <button class="attendance-button">Morning</button>
-                                        <button class="attendance-button">Evening</button>
-                                    </div>
-                                </div>
-                                <div class="complaint-section">
-                                    <h2 class="complaint-title">Complaint Box</h2>
-                                    <label for="title" class="input-title">Topic</label>
-                                    <input class="complaint-input" type="text" placeholder="Enter Topic">
-                                    <label for="title">Describe</label>
-                                    <textarea class="complaint-textarea" placeholder="Enter your complaint"></textarea>
-                                  <button class="inform-button">Inform Warden</button>
-                                </div>
+                            <div class="food-name">Uppumavu</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">✓</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Launch:</span>
                             </div>
+                            <div class="food-name">Meals</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Evening:</span>
+                            </div>
+                            <div class="food-name">Pazhampori</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Dinner:</span>
+                            </div>
+                            <div class="food-name">Kanji</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="attendance-section">
+                        <h2 class="attendance-title">Mark Attendance</h2>
+                        <div class="attendance-buttons">
+                            <button class="attendance-button">Morning</button>
+                            <button class="attendance-button">Evening</button>
+                        </div>
+                    </div>
+                    <div class="complaint-section">
+                        <h2 class="complaint-title">Complaint Box</h2>
+                        <form id="complaint-form" action="../process_complaint.php" method="post">
+                            <label for="title" class="input-title">Topic</label>
+                            <input class="complaint-input" type="text" name="topic" placeholder="Enter Topic" required>
+                            <label for="description">Describe</label>
+                            <textarea class="complaint-textarea" name="content" placeholder="Enter your complaint"required></textarea>
+                            <button type="submit" class="inform-button">Inform Warden</button>
+                        </form>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -226,31 +228,10 @@ session_start(); // Start the session
 
                     </div>
                 </div> -->
-            </div>
         </div>
     </div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Food Feedbacks</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
-  </div>
-</div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="../../style/dashboard.js"></script>
 </body>
 
