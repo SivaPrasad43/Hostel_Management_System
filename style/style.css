@@ -22,3 +22,18 @@ input, select, textarea{
 #sidebar-wrapper{
     height: 98vh;
 }
+
+.bg-image{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(169, 169, 169);
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+    background-image: url(../assets/college-bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    align-items: center;
+    background-clip:border-box;
+}
