@@ -92,15 +92,14 @@ session_start(); // Start the session
                 <div class="food-card">
                     <h2 class="food-title">Today's Menu</h2>
                     <div class="food-details">
-                        <div class="food-item had-food-success">
+                        <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
                             <button 
-                                            type="button" 
-                                            class="btn btn-sm btn-outline-light btn-rounded mt-2" 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
                                             data-bs-toggle="modal" 
                                             data-bs-target="#exampleModal"
                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
@@ -108,34 +107,54 @@ session_start(); // Start the session
                                           Give Feedback
                                         </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
-                            <div class="had-food-btn">✓</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Launch:</span>
+                                <span class="food-label">Breakfast:</span>
                             </div>
-                            <div class="food-name">Meals</div>
+                            <div class="food-name">Uppumavu</div>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
-                            <div class="had-food-btn">Had Food</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Evening:</span>
+                                <span class="food-label">Breakfast:</span>
                             </div>
-                            <div class="food-name">Pazhampori</div>
+                            <div class="food-name">Uppumavu</div>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
-                            <div class="had-food-btn">Had Food</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Dinner:</span>
+                                <span class="food-label">Breakfast:</span>
                             </div>
-                            <div class="food-name">Kanji</div>
+                            <div class="food-name">Uppumavu</div>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
-                            <div class="had-food-btn">Had Food</div>
                         </div>
                     </div>
                 </div>
