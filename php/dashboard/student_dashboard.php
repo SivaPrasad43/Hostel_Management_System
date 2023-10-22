@@ -64,11 +64,15 @@ session_start(); // Start the session
                             <h3> Settings</h3>
                         </div>
 
-                        <div class="nav-option logout">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-                                class="nav-img" alt="logout">
-                            <h3>Logout</h3>
-                        </div>
+                        <a href="../logout.php">
+                            <!-- Replace "logout.php" with the actual URL of your PHP logout script -->
+                            <div class="nav-option logout">
+                                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                                    class="nav-img" alt="logout">
+                                <h3>Logout</h3>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
             </nav>
@@ -139,7 +143,8 @@ session_start(); // Start the session
                             <label for="title" class="input-title">Topic</label>
                             <input class="complaint-input" type="text" name="topic" placeholder="Enter Topic" required>
                             <label for="description">Describe</label>
-                            <textarea class="complaint-textarea" name="content" placeholder="Enter your complaint"required></textarea>
+                            <textarea class="complaint-textarea" name="content" placeholder="Enter your complaint"
+                                required></textarea>
                             <button type="submit" class="inform-button">Inform Warden</button>
                         </form>
                     </div>
