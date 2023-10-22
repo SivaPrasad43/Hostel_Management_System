@@ -1,3 +1,9 @@
+<?php
+session_start(); // Start the session
+
+    $username = $_SESSION['username'];
+    $role = $_SESSION['role'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +63,7 @@
                                 class="nav-img" alt="settings">
                             <h3> Settings</h3>
                         </div>
-    
+
                         <div class="nav-option logout">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
                                 class="nav-img" alt="logout">
@@ -77,65 +83,68 @@
                 </div>
             </div>
 
-            <div class="dashboard-items-container">             
-                            <div class="food-card">
-                                <h2 class="food-title">Today's Menu</h2>
-                                <div class="food-details">
-                                    <div class="food-item had-food-success">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Breakfast:</span>
-                                        </div>
-                                        <div class="food-name">Uppumavu</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">✓</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Launch:</span>
-                                        </div>
-                                        <div class="food-name">Meals</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Evening:</span>
-                                        </div>
-                                        <div class="food-name">Pazhampori</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                    <div class="food-item">
-                                        <div class="food-title">
-                                            <i class="fas fa-utensils food-icon"></i>
-                                            <span class="food-label">Dinner:</span>
-                                        </div>
-                                        <div class="food-name">Kanji</div>
-                                        <div class="food-time">8:00 AM - 10:00 AM</div>
-                                        <div class="had-food-btn">Had Food</div>
-                                    </div>
-                                </div>
+            <div class="dashboard-items-container">
+                <div class="food-card">
+                    <h2 class="food-title">Today's Menu</h2>
+                    <div class="food-details">
+                        <div class="food-item had-food-success">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Breakfast:</span>
                             </div>
-                            <div>
-                                <div class="attendance-section">
-                                    <h2 class="attendance-title">Mark Attendance</h2>
-                                    <div class="attendance-buttons">
-                                        <button class="attendance-button">Morning</button>
-                                        <button class="attendance-button">Evening</button>
-                                    </div>
-                                </div>
-                                <div class="complaint-section">
-                                    <h2 class="complaint-title">Complaint Box</h2>
-                                    <label for="title" class="input-title">Topic</label>
-                                    <input class="complaint-input" type="text" placeholder="Enter Topic">
-                                    <label for="title">Describe</label>
-                                    <textarea class="complaint-textarea" placeholder="Enter your complaint"></textarea>
-                                  <button class="inform-button">Inform Warden</button>
-                                </div>
+                            <div class="food-name">Uppumavu</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">✓</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Launch:</span>
                             </div>
+                            <div class="food-name">Meals</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Evening:</span>
+                            </div>
+                            <div class="food-name">Pazhampori</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                        <div class="food-item">
+                            <div class="food-title">
+                                <i class="fas fa-utensils food-icon"></i>
+                                <span class="food-label">Dinner:</span>
+                            </div>
+                            <div class="food-name">Kanji</div>
+                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="had-food-btn">Had Food</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="attendance-section">
+                        <h2 class="attendance-title">Mark Attendance</h2>
+                        <div class="attendance-buttons">
+                            <button class="attendance-button">Morning</button>
+                            <button class="attendance-button">Evening</button>
+                        </div>
+                    </div>
+                    <div class="complaint-section">
+                        <h2 class="complaint-title">Complaint Box</h2>
+                        <form id="complaint-form" action="../process_complaint.php" method="post">
+                            <label for="title" class="input-title">Topic</label>
+                            <input class="complaint-input" type="text" name="topic" placeholder="Enter Topic" required>
+                            <label for="description">Describe</label>
+                            <textarea class="complaint-textarea" name="content" placeholder="Enter your complaint"required></textarea>
+                            <button type="submit" class="inform-button">Inform Warden</button>
+                        </form>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -219,8 +228,8 @@
 
                     </div>
                 </div> -->
-            </div>
         </div>
+    </div>
     </div>
 
     <script src="../../style/dashboard.js"></script>
