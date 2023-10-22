@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 // Assuming you have established a database connection ($conn)
 // Replace 'your_database_name' with the actual name of your database
 $servername = "localhost";
@@ -19,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username= $_POST['username']; // Assuming username is equivalent to the 'id' field in your staff table
     $password = $_POST['password'];
     $role = $_POST['role'];
-
+    $_SESSION['username'] = $username;
+    $_SESSION['role'] = $role;
     // Perform SQL query
     $sql = "SELECT COUNT(*) as total FROM login WHERE username = '$username' AND password = '$password' AND user_type = '$role'";
     $result = mysqli_query($conn, $sql);
