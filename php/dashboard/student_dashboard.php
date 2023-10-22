@@ -133,7 +133,11 @@
                                     <input class="complaint-input" type="text" placeholder="Enter Topic">
                                     <label for="title">Describe</label>
                                     <textarea class="complaint-textarea" placeholder="Enter your complaint"></textarea>
+<<<<<<<<< Temporary merge branch 1
+                                    <button class="inform-button">Inform</button>
+=========
                                     <button class="inform-button">Inform Warden</button>
+>>>>>>>>> Temporary merge branch 2
                                 </div>
                             </div>
 
