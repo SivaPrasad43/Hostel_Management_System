@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session
+session_start(); 
 
     $username = $_SESSION['username'];
     $role = $_SESSION['role'];
@@ -96,6 +96,15 @@ session_start(); // Start the session
                                         <div class="food-name">Uppumavu</div>
                                         <div class="food-time">8:00 AM - 10:00 AM</div>
                                         <div class="had-food-btn">✓</div>
+                                        <button 
+                                            type="button" 
+                                            class="btn btn-sm btn-outline-light btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                                     </div>
                                     <div class="food-item">
                                         <div class="food-title">
@@ -145,87 +154,6 @@ session_start(); // Start the session
                             </div>
 
             </div>
-
-            <!-- <div class="report-container">
-                <div class="report-header">
-                    <h1 class="recent-Articles">Recent Articles</h1>
-                    <button class="view">View All</button>
-                </div>
-
-                <div class="report-body">
-                    <div class="report-topic-heading">
-                        <h3 class="t-op">Article</h3>
-                        <h3 class="t-op">Views</h3>
-                        <h3 class="t-op">Comments</h3>
-                        <h3 class="t-op">Status</h3>
-                    </div>
-
-                    <div class="items">
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 73</h3>
-                            <h3 class="t-op-nextlvl">2.9k</h3>
-                            <h3 class="t-op-nextlvl">210</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 72</h3>
-                            <h3 class="t-op-nextlvl">1.5k</h3>
-                            <h3 class="t-op-nextlvl">360</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 71</h3>
-                            <h3 class="t-op-nextlvl">1.1k</h3>
-                            <h3 class="t-op-nextlvl">150</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 70</h3>
-                            <h3 class="t-op-nextlvl">1.2k</h3>
-                            <h3 class="t-op-nextlvl">420</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 69</h3>
-                            <h3 class="t-op-nextlvl">2.6k</h3>
-                            <h3 class="t-op-nextlvl">190</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 68</h3>
-                            <h3 class="t-op-nextlvl">1.9k</h3>
-                            <h3 class="t-op-nextlvl">390</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 67</h3>
-                            <h3 class="t-op-nextlvl">1.2k</h3>
-                            <h3 class="t-op-nextlvl">580</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 66</h3>
-                            <h3 class="t-op-nextlvl">3.6k</h3>
-                            <h3 class="t-op-nextlvl">160</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                        <div class="item1">
-                            <h3 class="t-op-nextlvl">Article 65</h3>
-                            <h3 class="t-op-nextlvl">1.3k</h3>
-                            <h3 class="t-op-nextlvl">220</h3>
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>
-                        </div>
-
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
