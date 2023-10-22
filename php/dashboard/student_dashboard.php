@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, 
 				initial-scale=1.0">
     <title>RIT Hostel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="../../style/dash-style.css">
     <link rel="stylesheet" href="../../style/responsive.css">
 </head>
@@ -45,48 +46,24 @@
         <div class="navcontainer">
             <nav class="nav">
                 <div class="nav-upper-options">
-                    <div class="nav-option option1">
+                    <div class="nav-option active">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
                             class="nav-img" alt="dashboard">
                         <h3> Dashboard</h3>
                     </div>
-
-                    <div class="option2 nav-option">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                            class="nav-img" alt="articles">
-                        <h3> Articles</h3>
+                    <div class="navbar-bottom">
+                        <div class="nav-option option6">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                                class="nav-img" alt="settings">
+                            <h3> Settings</h3>
+                        </div>
+    
+                        <div class="nav-option logout">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                                class="nav-img" alt="logout">
+                            <h3>Logout</h3>
+                        </div>
                     </div>
-
-                    <div class="nav-option option3">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-                            class="nav-img" alt="report">
-                        <h3> Report</h3>
-                    </div>
-
-                    <div class="nav-option option4">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                            class="nav-img" alt="institution">
-                        <h3> Institution</h3>
-                    </div>
-
-                    <div class="nav-option option5">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-                            class="nav-img" alt="blog">
-                        <h3> Profile</h3>
-                    </div>
-
-                    <div class="nav-option option6">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-                            class="nav-img" alt="settings">
-                        <h3> Settings</h3>
-                    </div>
-
-                    <div class="nav-option logout">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-                            class="nav-img" alt="logout">
-                        <h3>Logout</h3>
-                    </div>
-
                 </div>
             </nav>
         </div>
@@ -100,48 +77,69 @@
                 </div>
             </div>
 
-            <div class="box-container">
+            <div class="dashboard-items-container">             
+                            <div class="food-card">
+                                <h2 class="food-title">Today's Menu</h2>
+                                <div class="food-details">
+                                    <div class="food-item had-food-success">
+                                        <div class="food-title">
+                                            <i class="fas fa-utensils food-icon"></i>
+                                            <span class="food-label">Breakfast:</span>
+                                        </div>
+                                        <div class="food-name">Uppumavu</div>
+                                        <div class="food-time">8:00 AM - 10:00 AM</div>
+                                        <div class="had-food-btn">✓</div>
+                                    </div>
+                                    <div class="food-item">
+                                        <div class="food-title">
+                                            <i class="fas fa-utensils food-icon"></i>
+                                            <span class="food-label">Launch:</span>
+                                        </div>
+                                        <div class="food-name">Meals</div>
+                                        <div class="food-time">8:00 AM - 10:00 AM</div>
+                                        <div class="had-food-btn">Had Food</div>
+                                    </div>
+                                    <div class="food-item">
+                                        <div class="food-title">
+                                            <i class="fas fa-utensils food-icon"></i>
+                                            <span class="food-label">Evening:</span>
+                                        </div>
+                                        <div class="food-name">Pazhampori</div>
+                                        <div class="food-time">8:00 AM - 10:00 AM</div>
+                                        <div class="had-food-btn">Had Food</div>
+                                    </div>
+                                    <div class="food-item">
+                                        <div class="food-title">
+                                            <i class="fas fa-utensils food-icon"></i>
+                                            <span class="food-label">Dinner:</span>
+                                        </div>
+                                        <div class="food-name">Kanji</div>
+                                        <div class="food-time">8:00 AM - 10:00 AM</div>
+                                        <div class="had-food-btn">Had Food</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="attendance-section">
+                                    <h2 class="attendance-title">Mark Attendance</h2>
+                                    <div class="attendance-buttons">
+                                        <button class="attendance-button">Morning</button>
+                                        <button class="attendance-button">Evening</button>
+                                    </div>
+                                </div>
+                                <div class="complaint-section">
+                                    <h2 class="complaint-title">Complaint Box</h2>
+                                    <label for="title" class="input-title">Topic</label>
+                                    <input class="complaint-input" type="text" placeholder="Enter Topic">
+                                    <label for="title">Describe</label>
+                                    <textarea class="complaint-textarea" placeholder="Enter your complaint"></textarea>
+                                    <button class="inform-button">Inform Warden</button>
+                                </div>
+                            </div>
 
-                <div class="box box1">
-                    <div class="text">
-                        <h2 class="topic-heading">60.5k</h2>
-                        <h2 class="topic">Article Views</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-                        alt="Views">
-                </div>
-
-                <div class="box box2">
-                    <div class="text">
-                        <h2 class="topic-heading">150</h2>
-                        <h2 class="topic">Likes</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png" alt="likes">
-                </div>
-
-                <div class="box box3">
-                    <div class="text">
-                        <h2 class="topic-heading">320</h2>
-                        <h2 class="topic">Comments</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-                        alt="comments">
-                </div>
-
-                <div class="box box4">
-                    <div class="text">
-                        <h2 class="topic-heading">70</h2>
-                        <h2 class="topic">Published</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
-                </div>
             </div>
 
-            <div class="report-container">
+            <!-- <div class="report-container">
                 <div class="report-header">
                     <h1 class="recent-Articles">Recent Articles</h1>
                     <button class="view">View All</button>
@@ -220,7 +218,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

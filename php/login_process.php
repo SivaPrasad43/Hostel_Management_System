@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header('Location: dashboard/student_dashboard.php');
                 break;
             case 'warden':
-                header('Location: dashboard/warden_dashboard.php');
+                header('Location: dashboard/wardenDashboard/warden_dashboard.php');
                 break;
             case 'ms':
                 header('Location: dashboard/mess_secretary_dashboard.php');

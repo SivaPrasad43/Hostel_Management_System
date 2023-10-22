@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostel Management System</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -13,6 +13,7 @@
 <body>
     <!-- <?php include './component/header.php' ?> -->
     <div class="section background-bg py-5">
+        <div class="bg-image"></div>
         <h2 class="text-center pt-2 pb-3">Application for admission to RIT Hostels for the period 2023-24</h2>
         <div class="container col-lg-8 p-md-5 p-3 mt-3 border border-2 rounded-3 bg-light shadow">
             <form action="hostel_application_form.php" method="post">

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include "../../connection/connection.php";
-include "../data_fetch.php";
+include "../../../connection/connection.php";
+include "../../data_fetch.php";
 ?>
 
 <head>
@@ -11,8 +11,8 @@ include "../data_fetch.php";
     <meta name="viewport" content="width=device-width, 
 				initial-scale=1.0">
     <title>RIT Hostel</title>
-    <link rel="stylesheet" href="../../style/dash-style.css">
-    <link rel="stylesheet" href="../../style/responsive.css">
+    <link rel="stylesheet" href="../../../style/dash-style.css">
+    <link rel="stylesheet" href="../../../style/responsive.css">
 </head>
 
 <body>
@@ -46,49 +46,66 @@ include "../data_fetch.php";
     </header>
 
     <div class="main-container">
-        <div class="navcontainer">
+    <div class="navcontainer">
             <nav class="nav">
                 <div class="nav-upper-options">
-                    <div class="nav-option option1">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                            class="nav-img" alt="dashboard">
-                        <h3> Dashboard</h3>
+                    <div class="nav-top">
+                        <a href="warden_dashboard.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                                class="nav-img" alt="dashboard">
+                            <h3> Dashboard</h3>
+                        </a>
+    
+                        <a href="registered_students.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3> Registered Students</h3>
+                        </a>
+    
+                        <a href="finalized_students.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3> Finalized Students</h3>
+                        </a>
+    
+                        <a href="attendance.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3>Attendance</h3>
+                        </a>
+    
+                        <a href="complaints.php" class="active nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3>Complaints</h3>
+                        </a>
+    
+                        <a href="foodmenu.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3>Food Menu</h3>
+                        </a>
+    
+                        <a href="food_feedback.php" class="nav-option">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                                class="nav-img" alt="articles">
+                            <h3>Food Feedback</h3>
+                        </a>
+
                     </div>
 
-                    <div class="option2 nav-option">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                            class="nav-img" alt="articles">
-                        <h3> Articles</h3>
-                    </div>
-
-                    <div class="nav-option option3">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-                            class="nav-img" alt="report">
-                        <h3> Atte</h3>
-                    </div>
-
-                    <div class="nav-option option4">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                            class="nav-img" alt="institution">
-                        <h3> Institution</h3>
-                    </div>
-
-                    <div class="nav-option option5">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-                            class="nav-img" alt="blog">
-                        <h3> Profile</h3>
-                    </div>
-
-                    <div class="nav-option option6">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-                            class="nav-img" alt="settings">
-                        <h3> Settings</h3>
-                    </div>
-
-                    <div class="nav-option logout">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-                            class="nav-img" alt="logout">
-                        <h3>Logout</h3>
+                    <div class="navbar-bottom">
+                        <div class="nav-option option6">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                                class="nav-img" alt="settings">
+                            <h3> Settings</h3>
+                        </div>
+    
+                        <div class="nav-option logout">
+                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                                class="nav-img" alt="logout">
+                            <h3>Logout</h3>
+                        </div>
                     </div>
 
                 </div>
@@ -197,7 +214,7 @@ if ($result) {
         </div>
     </div>
 
-    <script src="../../style/dashboard.js"></script>
+    <script src="../../../style/dashboard.js"></script>
 </body>
 
 </html>
