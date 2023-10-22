@@ -122,6 +122,15 @@
                             <div>
                                 <div class="attendance-section">
                                     <h2 class="attendance-title">Mark Attendance</h2>
+                                    <div class="attendance-box">
+                                        <div class="time-show">
+                                            <p>Morning Attendance</p>
+                                            <h1>9:00 AM - 10:00 AM </h1>
+                                        </div>
+                                        <div class="mark-attendance">
+                                            <a href="#" class="attendance-btn">Mark Attendance</a>
+                                        </div>
+                                    </div>
                                     <div class="attendance-buttons">
                                         <button class="attendance-button">Morning</button>
                                         <button class="attendance-button">Evening</button>

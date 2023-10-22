@@ -541,3 +541,29 @@ border-radius: 4px;
 	background: #f53838;
 	color: #fff;
 }
+
+.attendance-box{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.time-show  h1{
+	font-size:2rem;
+	font-weight: 500;
+}
+
+.attendance-btn{
+	background-color: #3f0097;
+	padding: 8px 24px;
+	border-radius: 8px;
+	color: white;
+}
+
+.attendance-btn:hover{
+	background-color: #641aca;
+}
+
+.mark-attendance a{
+	color: white;
+}
