@@ -440,6 +440,9 @@ border-radius: 4px;
 	background-color:#219a6e !important;
 	color: white;
 	border: none;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
 }
 
 .had-food-success .had-food-btn {
