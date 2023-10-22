@@ -133,7 +133,7 @@
                                     <input class="complaint-input" type="text" placeholder="Enter Topic">
                                     <label for="title">Describe</label>
                                     <textarea class="complaint-textarea" placeholder="Enter your complaint"></textarea>
-                                    <button class="inform-button">Inform Warden</button>
+                                  <button class="inform-button">Inform Warden</button>
                                 </div>
                             </div>
 
