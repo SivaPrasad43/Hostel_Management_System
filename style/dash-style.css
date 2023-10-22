@@ -440,6 +440,9 @@ border-radius: 4px;
 	background-color:#219a6e !important;
 	color: white;
 	border: none;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
 }
 
 .had-food-success .had-food-btn {
@@ -540,4 +543,30 @@ border-radius: 4px;
 .inform-button:hover {
 	background: #f53838;
 	color: #fff;
+}
+
+.attendance-box{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.time-show  h1{
+	font-size:2rem;
+	font-weight: 500;
+}
+
+.attendance-btn{
+	background-color: #3f0097;
+	padding: 8px 24px;
+	border-radius: 8px;
+	color: white;
+}
+
+.attendance-btn:hover{
+	background-color: #641aca;
+}
+
+.mark-attendance a{
+	color: white;
 }
