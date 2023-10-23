@@ -559,3 +559,22 @@ border-radius: 4px;
 .mark-attendance a{
 	color: white;
 }
+
+.meeting-section{
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	text-align: left;
+	margin-top: 20px;
+}
+
+.meeting-box{
+	border: 1px solid gray;
+	padding: 8px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.info-item h5{
+	font-size: 1rem;
+}
