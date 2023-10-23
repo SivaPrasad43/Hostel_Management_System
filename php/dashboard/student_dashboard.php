@@ -147,12 +147,11 @@ session_start(); // Start the session
                             </div>
                             <div class="food-name">Uppumavu</div>
                             <button 
-                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#exampleModal"
-                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                            >
-                                          Give Feedback
+                                class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#exampleModal"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                            >Give Feedback
                                         </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
@@ -175,6 +174,27 @@ session_start(); // Start the session
                             <button class="attendance-button">Evening</button>
                         </div>
                     </div>
+                    
+                    <div class="meeting-section">
+                        <h2 class="attendance-title">Meeting Schedule</h2>
+                        <div class="meeting-box d-flex justify-content-between">
+                            <div class="meeting-details col-9">
+                                <h4>Title</h4>
+                                <p>Description</p>
+                            </div>
+                            <div class="meeting-info col-2">
+                                <div class="info-item d-flex gap-2">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <h5>10/10/2023</h5>
+                                </div>
+                                <div class="info-item d-flex mt-2 gap-2">
+                                    <i class="far fa-clock"></i>
+                                    <h5>10:00 PM</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="complaint-section">
                         <h2 class="complaint-title">Complaint Box</h2>
                         <form id="complaint-form" action="../process_complaint.php" method="post">
