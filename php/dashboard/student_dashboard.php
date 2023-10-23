@@ -99,11 +99,14 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                Give Feedback
-                            </button>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -112,11 +115,14 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                Give Feedback
-                            </button>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -125,11 +131,14 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                Give Feedback
-                            </button>
+                            <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -138,11 +147,14 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                Give Feedback
-                            </button>
+                         <button 
+                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
+                                            data-bs-toggle="modal" 
+                                            data-bs-target="#exampleModal"
+                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                                            >
+                                          Give Feedback
+                                        </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                     </div>

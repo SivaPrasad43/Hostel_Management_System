@@ -445,17 +445,6 @@ border-radius: 4px;
 	align-items: start;
 }
 
-.had-food-success .had-food-btn {
-	border: 1px solid white;
-	color: white;
-}
-
-.had-food-success .had-food-btn:hover {
-	border: 1px solid white;
-	background-color:#219a6e ;
-	color: white;
-}
-
 
 .attendance-section {
 	background-color: white;
