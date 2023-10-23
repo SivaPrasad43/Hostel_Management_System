@@ -143,7 +143,7 @@ session_start(); // Start the session
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
-                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="food-time"></div>
                         </div>
                     </div>
                 </div>
@@ -154,8 +154,8 @@ session_start(); // Start the session
                         <h2 class="attendance-title">Mark Attendance</h2>
                         <div class="attendance-box">
                             <div class="time-show">
-                                <p>Morning Attendance</p>
-                                <h1>8:00 AM - 9:30 AM</h1>
+                                <p id="attendance-type"></p>
+                                <h1 id="time-show"></h1>
                             </div>
                             <div class="mark-attendance">
                                 <form id="attendance-form" action="../process_attendance.php" method="post">
@@ -163,16 +163,14 @@ session_start(); // Start the session
                                     <button id="morning-attendance-btn" type="submit" class="attendance-btn">Mark
                                         Morning Attendance</button>
                                 </form>
-                                <p id="attendance-message" style="display: none;">Mark attendance between 8:00 AM and
-                                    9:30 AM.</p>
                             </div>
-                        </div>
-                        <div class="attendance-buttons">
-                            <form id="night-attendance-form" action="../process_attendance.php" method="post">
-                                <input type="hidden" name="attendance_type" value="night">
-                                <button id="night-attendance-btn" type="submit" class="attendance-button"
-                                    style="display: none;">Mark Night Attendance</button>
-                            </form>
+                            <div class="mark-attendance">
+                                <form id="night-attendance-form" action="../process_attendance.php" method="post">
+                                    <input type="hidden" name="attendance_type" value="night">
+                                    <button id="night-attendance-btn" type="submit" class="attendance-btn"
+                                        style="display: none;">Mark Night Attendance</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
 
@@ -183,18 +181,22 @@ session_start(); // Start the session
                     var minutes = now.getMinutes();
 
                     // Check if the current time is within the allowed time intervals
-                    if ((hours == 8 && minutes >= 0 && minutes <` 60) || (hours == 11 && minutes <= 1)) {
+                    if ((hours == 8 && minutes >= 0 && minutes < 60) || (hours == 11 && minutes <= 50)) {
                         // Show the "attendance-section" div and the "Morning" button
+                        document.getElementById("time-show").innerHTML = "8:00 AM - 9:00 AM";
+                        document.getElementById("attendance-type").innerHTML = "Morning Attendance"
                         document.querySelector(".attendance-section").style.display = "block";
                         document.getElementById("morning-attendance-btn").style.display = "block";
                         document.getElementById("night-attendance-btn").style.display =
-                        "none"; // Hide the "Night" button
-                    } else if (hours == 21 && minutes >= 0 && minutes < 30) {
+                            "none"; // Hide the "Night" button
+                    } else if (hours == 11 && minutes >= 0 && minutes < 10) {
                         // Show the "attendance-section" div and the "Night" button
+                        document.getElementById("time-show").innerHTML = "9:00 PM - 9:30 PM";
+                        document.getElementById("attendance-type").innerHTML = "Night Attendance"
                         document.querySelector(".attendance-section").style.display = "block";
                         document.getElementById("night-attendance-btn").style.display = "block";
                         document.getElementById("morning-attendance-btn").style.display =
-                        "none"; // Hide the "Morning" button
+                            "none"; // Hide the "Morning" button
 
                         // Calculate the time until 10:30 PM
                         var endTime = new Date();
