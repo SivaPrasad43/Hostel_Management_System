@@ -11,6 +11,9 @@ include "../../data_fetch.php";
     <meta name="viewport" content="width=device-width, 
 				initial-scale=1.0">
     <title>RIT Hostel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../../../style/dash-style.css">
     <link rel="stylesheet" href="../../../style/responsive.css">
 </head>
@@ -112,56 +115,56 @@ include "../../data_fetch.php";
             </nav>
         </div>
         <div class="main">
-
-            <div class="searchbar2">
-                <input type="text" name="" id="" placeholder="Search">
-                <div class="searchbtn">
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                        class="icn srchicn" alt="search-button">
-                </div>
-            </div>
-
-            <div class="box-container">
-
-                <div class="box box1">
-                    <div class="text">
-                        <h2 class="topic-heading"><?php echo $totalStudents; ?></h2>
-                        <h2 class="topic">Registered student</h2>
+            <div class="dashboard-items-container" style="display:block">
+                <div class="food-card" style="width:100%;">
+                    <h2 class="food-title">Today's Menu</h2>
+                    <div class="food-details row gap-0">
+                        <div class="col-6">
+                            <div class="food-item">
+                                <div class="food-title">
+                                    <i class="fas fa-utensils food-icon"></i>
+                                    <span class="food-label">Breakfast:</span>
+                                </div>
+                                <div class="food-name">Uppumavu</div>
+                                <div class="food-time">8:00 AM - 10:00 AM</div>
+                            </div>  
+                        </div>
+                        <div class="col-6">
+                            <div class="food-item">
+                                <div class="food-title">
+                                    <i class="fas fa-utensils food-icon"></i>
+                                    <span class="food-label">Breakfast:</span>
+                                </div>
+                                <div class="food-name">Uppumavu</div>
+                                <div class="food-time">8:00 AM - 10:00 AM</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="food-item">
+                                <div class="food-title">
+                                    <i class="fas fa-utensils food-icon"></i>
+                                    <span class="food-label">Breakfast:</span>
+                                </div>
+                                <div class="food-name">Uppumavu</div>
+                                <div class="food-time">8:00 AM - 10:00 AM</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="food-item">
+                                <div class="food-title">
+                                    <i class="fas fa-utensils food-icon"></i>
+                                    <span class="food-label">Breakfast:</span>
+                                </div>
+                                <div class="food-name">Uppumavu</div>
+                                <div class="food-time">8:00 AM - 10:00 AM</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-                <div class="box box2">
-                    <div class="text">
-                    <h2 class="topic-heading"><?php echo $totalStudents1; ?></h2>
-                        <h2 class="topic">Alloted Students</h2>
-                    </div>
-
-                    <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png" alt="likes"> -->
-                </div>
-
-                <div class="box box3">
-                    <div class="text">
-                        <h2 class="topic-heading">320</h2>
-                        <h2 class="topic">Comments</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-                        alt="comments">
-                </div>
-
-                <div class="box box4">
-                    <div class="text">
-                        <h2 class="topic-heading">70</h2>
-                        <h2 class="topic">Published</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
-                </div>
-            </div>
-
-            <div class="report-container">
+                 </div>
+                <div>
+                <div class="report-container">
                 <div class="report-header">
-                    <h1 class="recent-Articles">Alloted Students</h1>
+                    <h1 class="recent-Articles">Food Feedback</h1>
                     <button class="view">Download</button>
                 </div>
 
@@ -205,12 +208,6 @@ if ($result) {
 // Close the database connection
 // mysqli_close($connection);
 ?>
-
-
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

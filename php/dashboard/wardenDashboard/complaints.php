@@ -120,48 +120,9 @@ include "../../data_fetch.php";
                         class="icn srchicn" alt="search-button">
                 </div>
             </div>
-
-            <div class="box-container">
-
-                <div class="box box1">
-                    <div class="text">
-                        <h2 class="topic-heading"><?php echo $totalStudents; ?></h2>
-                        <h2 class="topic">Registered student</h2>
-                    </div>
-                </div>
-
-                <div class="box box2">
-                    <div class="text">
-                    <h2 class="topic-heading"><?php echo $totalStudents1; ?></h2>
-                        <h2 class="topic">Alloted Students</h2>
-                    </div>
-
-                    <!-- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png" alt="likes"> -->
-                </div>
-
-                <div class="box box3">
-                    <div class="text">
-                        <h2 class="topic-heading">320</h2>
-                        <h2 class="topic">Comments</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-                        alt="comments">
-                </div>
-
-                <div class="box box4">
-                    <div class="text">
-                        <h2 class="topic-heading">70</h2>
-                        <h2 class="topic">Published</h2>
-                    </div>
-
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published">
-                </div>
-            </div>
-
             <div class="report-container">
                 <div class="report-header">
-                    <h1 class="recent-Articles">Alloted Students</h1>
+                    <h1 class="recent-Articles">Complaints</h1>
                     <button class="view">Download</button>
                 </div>
 
