@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2023 at 08:18 PM
+-- Generation Time: Oct 23, 2023 at 08:30 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,81 @@ SET time_zone = "+00:00";
 --
 -- Database: `hostel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance`
+--
+
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `admission_no` varchar(255) NOT NULL,
+  `branch` varchar(255) NOT NULL,
+  `semester` varchar(66) NOT NULL,
+  `morning` int(11) NOT NULL,
+  `night` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`id`, `name`, `admission_no`, `branch`, `semester`, `morning`, `night`) VALUES
+(1, 'John Doe', 'AD12345', 'Computer Science', '', 1, 0),
+(7, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(8, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(9, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(10, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(12, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(13, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(14, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(15, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(16, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
+(17, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1),
+(18, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complaint_box`
+--
+
+CREATE TABLE `complaint_box` (
+  `complaint_id` int(11) NOT NULL,
+  `topic` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `admission_no` varchar(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `branch_name` varchar(255) NOT NULL,
+  `degree` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `complaint_box`
+--
+
+INSERT INTO `complaint_box` (`complaint_id`, `topic`, `content`, `admission_no`, `name`, `branch_name`, `degree`) VALUES
+(2, 'test', 'test', '111', 'SHEBIN P BIJU', 'mca', 'math'),
+(3, 'test', 'test', '111', 'SHEBIN P BIJU', 'mca', 'math'),
+(4, 'test', 'test', '111', 'SHEBIN P BIJU', 'mca', 'math'),
+(5, 'test', 'q', '111', 'SHEBIN P BIJU', 'mca', 'math'),
+(6, 'test', 'w', '111', 'SHEBIN P BIJU', 'mca', 'math');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `food_menu`
+--
+
+CREATE TABLE `food_menu` (
+  `menu_id` int(11) NOT NULL,
+  `breakfast_item` varchar(255) DEFAULT NULL,
+  `lunch_item` varchar(255) DEFAULT NULL,
+  `evening_item` varchar(255) DEFAULT NULL,
+  `dinner_item` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -132,6 +207,24 @@ INSERT INTO `login` (`username`, `password`, `user_type`) VALUES
 --
 
 --
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `complaint_box`
+--
+ALTER TABLE `complaint_box`
+  ADD PRIMARY KEY (`complaint_id`);
+
+--
+-- Indexes for table `food_menu`
+--
+ALTER TABLE `food_menu`
+  ADD PRIMARY KEY (`menu_id`);
+
+--
 -- Indexes for table `hostel_student_list`
 --
 ALTER TABLE `hostel_student_list`
@@ -153,6 +246,24 @@ ALTER TABLE `login`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `complaint_box`
+--
+ALTER TABLE `complaint_box`
+  MODIFY `complaint_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `food_menu`
+--
+ALTER TABLE `food_menu`
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `hostel_student_list`

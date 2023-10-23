@@ -181,7 +181,7 @@ session_start(); // Start the session
                     var minutes = now.getMinutes();
 
                     // Check if the current time is within the allowed time intervals
-                    if ((hours == 8 && minutes >= 0 && minutes < 60) || (hours == 11 && minutes <= 50)) {
+                    if ((hours == 8 && minutes >= 0 && minutes < 60) || (hours == 11 && minutes <= 20)) {
                         // Show the "attendance-section" div and the "Morning" button
                         document.getElementById("time-show").innerHTML = "8:00 AM - 9:00 AM";
                         document.getElementById("attendance-type").innerHTML = "Morning Attendance"
@@ -189,7 +189,7 @@ session_start(); // Start the session
                         document.getElementById("morning-attendance-btn").style.display = "block";
                         document.getElementById("night-attendance-btn").style.display =
                             "none"; // Hide the "Night" button
-                    } else if (hours == 11 && minutes >= 0 && minutes < 10) {
+                    } else if (hours == 11 && minutes >= 0 && minutes < 50) {
                         // Show the "attendance-section" div and the "Night" button
                         document.getElementById("time-show").innerHTML = "9:00 PM - 9:30 PM";
                         document.getElementById("attendance-type").innerHTML = "Night Attendance"

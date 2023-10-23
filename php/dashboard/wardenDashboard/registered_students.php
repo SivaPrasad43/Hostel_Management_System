@@ -133,7 +133,7 @@ include "../../data_fetch.php";
 // Assuming $connection is your database connection variable
 
 // Fetch data from the database
-$query = "SELECT name, admissionNo, semester, branch, yearOfStudy FROM hostel_student_list";
+$query = "SELECT name, admissionNo, semester, branch, yearOfStudy FROM hostel_student_registration";
 $result = mysqli_query($conn, $query);
 
 // Check if the query was successful
