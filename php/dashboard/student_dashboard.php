@@ -99,14 +99,11 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button 
-                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#exampleModal"
-                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                            >
-                                          Give Feedback
-                                        </button>
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Give Feedback
+                            </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -115,14 +112,11 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button 
-                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#exampleModal"
-                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                            >
-                                          Give Feedback
-                                        </button>
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Give Feedback
+                            </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -131,14 +125,11 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                            <button 
-                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#exampleModal"
-                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                            >
-                                          Give Feedback
-                                        </button>
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Give Feedback
+                            </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -147,14 +138,11 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name">Uppumavu</div>
-                         <button 
-                                            class="btn btn-small btn-outline-primary btn-rounded mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#exampleModal"
-                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
-                                            >
-                                          Give Feedback
-                                        </button>
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Give Feedback
+                            </button>
                             <div class="food-time">8:00 AM - 10:00 AM</div>
                         </div>
                     </div>
@@ -163,27 +151,30 @@ session_start(); // Start the session
 
                     <!-- Attendence -->
                     <div class="attendance-section">
-    <h2 class="attendance-title">Mark Attendance</h2>
-    <div class="attendance-box">
-        <div class="time-show">
-            <p>Morning Attendance</p>
-            <h1>8:00 AM - 9:29 AM</h1>
-        </div>
-        <div class="mark-attendance">
-            <form id="attendance-form" action="../process_attendance.php" method="post">
-                <input type="hidden" name="attendance_type" value="morning">
-                <button id="morning-attendance-btn" type="submit" class="attendance-btn">Mark Morning Attendance</button>
-            </form>
-            <p id="attendance-message" style="display: none;">Mark attendance between 8:00 AM and 9:29 AM.</p>
-        </div>
-    </div>
-    <div class="attendance-buttons">
-        <form id="night-attendance-form" action="../process_attendance.php" method="post">
-            <input type="hidden" name="attendance_type" value="night">
-            <button id="night-attendance-btn" type="submit" class="attendance-button" style="display: none;">Mark Night Attendance</button>
-        </form>
-    </div>
-</div>
+                        <h2 class="attendance-title">Mark Attendance</h2>
+                        <div class="attendance-box">
+                            <div class="time-show">
+                                <p>Morning Attendance</p>
+                                <h1>8:00 AM - 9:30 AM</h1>
+                            </div>
+                            <div class="mark-attendance">
+                                <form id="attendance-form" action="../process_attendance.php" method="post">
+                                    <input type="hidden" name="attendance_type" value="morning">
+                                    <button id="morning-attendance-btn" type="submit" class="attendance-btn">Mark
+                                        Morning Attendance</button>
+                                </form>
+                                <p id="attendance-message" style="display: none;">Mark attendance between 8:00 AM and
+                                    9:30 AM.</p>
+                            </div>
+                        </div>
+                        <div class="attendance-buttons">
+                            <form id="night-attendance-form" action="../process_attendance.php" method="post">
+                                <input type="hidden" name="attendance_type" value="night">
+                                <button id="night-attendance-btn" type="submit" class="attendance-button"
+                                    style="display: none;">Mark Night Attendance</button>
+                            </form>
+                        </div>
+                    </div>
 
                     <script>
                     // Get the current date and time
@@ -192,23 +183,28 @@ session_start(); // Start the session
                     var minutes = now.getMinutes();
 
                     // Check if the current time is within the allowed time intervals
-                    if ((hours == 8 && minutes >= 0 && minutes < 60) || (hours == 10 && minutes <= 55)) {
-                        // Show the "attendance-section" div
+                    if ((hours == 8 && minutes >= 0 && minutes <` 60) || (hours == 11 && minutes <= 1)) {
+                        // Show the "attendance-section" div and the "Morning" button
                         document.querySelector(".attendance-section").style.display = "block";
+                        document.getElementById("morning-attendance-btn").style.display = "block";
+                        document.getElementById("night-attendance-btn").style.display =
+                        "none"; // Hide the "Night" button
                     } else if (hours == 21 && minutes >= 0 && minutes < 30) {
-                        // Show the "attendance-section" div
+                        // Show the "attendance-section" div and the "Night" button
                         document.querySelector(".attendance-section").style.display = "block";
+                        document.getElementById("night-attendance-btn").style.display = "block";
+                        document.getElementById("morning-attendance-btn").style.display =
+                        "none"; // Hide the "Morning" button
 
-                        // Calculate the time until 9:29 PM
+                        // Calculate the time until 10:30 PM
                         var endTime = new Date();
-                        endTime.setHours(21);
-                        endTime.setMinutes(29);
+                        endTime.setHours(22);
+                        endTime.setMinutes(30);
                         var timeRemaining = endTime - now;
 
-                        // Schedule a page reload when the end time is reached
+                        // Schedule a page refresh when the end time is reached
                         setTimeout(function() {
                             window.location.reload(true); // Hard refresh the page
-
                         }, timeRemaining);
                     } else {
                         // Hide the "attendance-section" div
