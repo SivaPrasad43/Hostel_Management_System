@@ -13,6 +13,28 @@ include "../../data_fetch.php";
     <title>RIT Hostel</title>
     <link rel="stylesheet" href="../../../style/dash-style.css">
     <link rel="stylesheet" href="../../../style/responsive.css">
+    <style>
+    .report-topic-heading {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+        background-color: #f0f0f0;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .t-op-nextlvl {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .item1 {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
+        margin: 5px 0;
+        padding: 5px;
+    }
+</style>
+
 </head>
 
 <body>
@@ -128,36 +150,38 @@ include "../../data_fetch.php";
 
                 <div class="report-body">
                     <div class="report-topic-heading">
-                        <h3 class="t-op">Name</h3>
-                        <h3 class="t-op">Admission number</h3>
-                        <h3 class="t-op">Year of study</h3>
-                        <h3 class="t-op">semester</h3>
+                        <h3 class="t-op">Complaint</h3>
+                        <h3 class="t-op">Content</h3>
+                        <h3 class="t-op">Admission_no</h3>
+                        <h3 class="t-op">Student Name</h3>
                         <h3 class="t-op">branch</h3>
+                        <h3 class="t-op">Degree</h3>
                     </div>
 
 <!-- Add the following code after the existing PHP includes -->
 <!-- Add the following code after the existing PHP includes -->
 <?php
-// Assuming $connection is your database connection variable
+// Assuming $connssssection is your database connection variable
 
 // Fetch data from the database
-$query = "SELECT name, admissionNo, semester, branch, yearOfStudy FROM hostel_student_list";
+$query = "SELECT topic,content,admission_no,name,branch_name,degree FROM complaint_box";
 $result = mysqli_query($conn, $query);
 
 // Check if the query was successful
 if ($result) {
     // Loop through each row in the result set
-    while ($row = mysqli_fetch_assoc($result)) {
-        // Output the data in the HTML structure for each row
-        echo '<div class="item1">';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['name']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['admissionNo']) . '</h3>';
-        
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['yearOfStudy']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['semester']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['branch']) . '</h3>';
-        echo '</div>';
-    }
+   // Loop through each row in the result set
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '<div class="item1">';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['topic']) . '</div>';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['content']) . '</div>';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['admission_no']) . '</div>';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['name']) . '</div>';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['branch_name']) . '</div>';
+    echo '<div class="t-op-nextlvl">' . htmlspecialchars($row['degree']) . '</div>';
+    echo '</div>';
+}
+
 } else {
     // Handle the case where the query fails
     echo 'Error fetching data: ' . mysqli_error($connection);
