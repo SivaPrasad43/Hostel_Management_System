@@ -186,7 +186,37 @@ input[type="submit"]:hover {
     <input type="submit" value="Add/Update">
    
 </form>
+<table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Admission No</th>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>Morning</th>
+            <th>Night</th>
+        </tr>
+        <?php
+        // Include your connection.php file
+        include '../../connection/connection.php';
 
+        // Select data from the attendance table
+        $query = "SELECT * FROM attendance";
+        $result = mysqli_query($conn, $query);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row['id'] . "</td>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['admission_no'] . "</td>";
+            echo "<td>" . $row['branch'] . "</td>";
+            echo "<td>" . $row['semester'] . "</td>";
+            echo "<td>" . $row['morning'] . "</td>";
+            echo "<td>" . $row['night'] . "</td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
 
             
         </div>

@@ -88,7 +88,16 @@ session_start(); // Start the session
                         class="icn srchicn" alt="search-button">
                 </div>
             </div>
+            <?php
+                    // Include your connection.php file
+                    include '../../connection/connection.php';
 
+                    // Select data from the food_menu table
+                    $query = "SELECT * FROM food_menu WHERE menu_id = 1";
+                    $result = mysqli_query($conn, $query);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
             <div class="dashboard-items-container">
                 <div class="food-card">
                     <h2 class="food-title">Today's Menu</h2>
@@ -98,57 +107,60 @@ session_start(); // Start the session
                                 <i class="fas fa-utensils food-icon"></i>
                                 <span class="food-label">Breakfast:</span>
                             </div>
-                            <div class="food-name">Uppumavu</div>
+                            <div class="food-name"> <?php echo  $row['breakfast_item']; ?></div>
                             <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
-                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="food-time">8:00 AM - 9:00 AM</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Breakfast:</span>
+                                <span class="food-label">Lunch:</span>
                             </div>
-                            <div class="food-name">Uppumavu</div>
+                            <div class="food-name"><?php echo  $row['lunch_item']; ?></div>
                             <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
-                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="food-time">12:00 AM - 01:30 PM</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Breakfast:</span>
+                                <span class="food-label">Evening:</span>
                             </div>
-                            <div class="food-name">Uppumavu</div>
+                            <div class="food-name"><?php echo  $row['evening_item']; ?></div>
                             <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
-                            <div class="food-time">8:00 AM - 10:00 AM</div>
+                            <div class="food-time">4:00 PM - 5:30 PM</div>
                         </div>
                         <div class="food-item">
                             <div class="food-title">
                                 <i class="fas fa-utensils food-icon"></i>
-                                <span class="food-label">Breakfast:</span>
+                                <span class="food-label">Dinner:</span>
                             </div>
-                            <div class="food-name">Uppumavu</div>
+                            <div class="food-name"><?php echo  $row['dinner_item']; ?></div>
                             <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
-                            <div class="food-time"></div>
+                            <div class="food-time">8:00 PM - 9:30 PM</div>
+
                         </div>
                     </div>
                 </div>
                 <div>
-
+<?php 
+                    }
+                    ?>
                     <!-- Attendence -->
                     <div class="attendance-section">
                         <h2 class="attendance-title">Mark Attendance</h2>
@@ -247,14 +259,14 @@ session_start(); // Start the session
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="complaint-form" action="../process_complaint.php" method="post">
+                    <form id="complaint-form" action="../process_feedback.php" method="post">
                         <label for="description">Describe</label>
-                        <textarea class="complaint-textarea" name="content" placeholder="Enter your Feedback"
+                        <textarea class="complaint-textarea" name="feedback" placeholder="Enter your Feedback"
                             required></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send Feedback</button>
+                    <button type="submit" class="btn btn-primary">Send Feedback</button>
                 </div>
                 </form>
             </div>
