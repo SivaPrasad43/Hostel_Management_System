@@ -151,21 +151,42 @@ input[type="submit"]:hover {
 
                 
             </div>  
-    <form action="../process_food_menu.php" method="post">
-        <label for="breakfast_item">Breakfast Item:</label>
-        <input type="text" name="breakfast_item" id="breakfast_item" required><br><br>
+            <form action="../process_food_menu.php" method="post">
+    <?php
+    // Include your connection.php file
+    include '../../connection/connection.php';
 
-        <label for="lunch_item">Lunch Item:</label>
-        <input type="text" name="lunch_item" id="lunch_item" required><br><br>
+    // Check if a menu_id is provided, and retrieve data from the database
 
-        <label for="evening_item">Evening Item:</label>
-        <input type="text" name="evening_item" id="evening_item" required><br><br>
+        $query = "SELECT * FROM food_menu WHERE menu_id = 1";
+        $result = mysqli_query($conn, $query);
 
-        <label for="dinner_item">Dinner Item:</label>
-        <input type="text" name="dinner_item" id="dinner_item" required><br><br>
+        if ($row = mysqli_fetch_assoc($result)) {
+            $breakfast_item = $row['breakfast_item'];
+            $lunch_item = $row['lunch_item'];
+            $evening_item = $row['evening_item'];
+            $dinner_item = $row['dinner_item'];
+        }
+    ?>
 
-        <input type="submit" value="Add">
-    </form>
+    <input type="hidden" name="menu_id" value="<?php echo $menu_id; ?>">
+
+    <label for="breakfast_item">Breakfast Item:</label>
+    <input type="text" name="breakfast_item" id="breakfast_item" value="<?php echo $breakfast_item; ?>" required><br><br>
+
+    <label for="lunch_item">Lunch Item:</label>
+    <input type="text" name="lunch_item" id="lunch_item" value="<?php echo $lunch_item; ?>" required><br><br>
+
+    <label for="evening_item">Evening Item:</label>
+    <input type="text" name="evening_item" id="evening_item" value="<?php echo $evening_item; ?>" required><br><br>
+
+    <label for="dinner_item">Dinner Item:</label>
+    <input type="text" name="dinner_item" id="dinner_item" value="<?php echo $dinner_item; ?>" required><br><br>
+
+    <input type="submit" value="Add/Update">
+   
+</form>
+
 
             
         </div>
