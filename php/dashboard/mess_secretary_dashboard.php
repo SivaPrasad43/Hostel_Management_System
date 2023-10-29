@@ -96,10 +96,7 @@
         background-color: #f2f2f2;
     }
 
-    <!-- ... your existing HTML code ... -->
-
-<style>
-    .box-container {
+    < !-- ... your existing HTML code ... --><style>.box-container {
         display: flex;
         justify-content: space-between;
     }
@@ -125,9 +122,9 @@
     .night-attendance {
         flex: 1;
     }
-</style>
+    </style>
 
-<!-- ... your existing HTML code ... -->
+    <!-- ... your existing HTML code ... -->
 
     </style>
 </head>
@@ -267,10 +264,10 @@
 
             </form>
             <div class="box-container">
-    <div class="attendance-container">
-        <div class="attendance-box morning-attendance">
-            <h3>Morning Attendance Total : </h3>
-            <?php
+                <div class="attendance-container">
+                    <div class="attendance-box morning-attendance">
+                        <h3>Morning Attendance Total : </h3>
+                        <?php
             // Include your connection.php file
             include '../../connection/connection.php';
 
@@ -282,10 +279,10 @@
 
             echo "<p> $morningCount</p>";
             ?>
-        </div>
-        <div class="attendance-box night-attendance">
-            <h3>Night Attendance Total : </h3>
-            <?php
+                    </div>
+                    <div class="attendance-box night-attendance">
+                        <h3>Night Attendance Total : </h3>
+                        <?php
             // Count the number of attendees at night
             $nightQuery = "SELECT COUNT(*) as night_count FROM attendance WHERE night = 1";
             $nightResult = mysqli_query($conn, $nightQuery);
@@ -294,9 +291,9 @@
 
             echo "<p> $nightCount</p>";
             ?>
-        </div>
-    </div>
-</div>
+                    </div>
+                </div>
+            </div>
 
             <table>
                 <tr>
@@ -312,7 +309,8 @@
         include '../../connection/connection.php';
 
         // Select data from the attendance table
-        $query = "SELECT * FROM attendance";
+        $currentDate = date("Y-m-d");
+        $query = "SELECT * FROM attendance WHERE date = '$currentDate'";
         $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -341,7 +339,7 @@
             echo "</tr>";
         }
         ?>
-        
+
             </table>
 
 
