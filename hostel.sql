@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2023 at 08:30 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: Oct 29, 2023 at 02:42 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,26 +34,17 @@ CREATE TABLE `attendance` (
   `branch` varchar(255) NOT NULL,
   `semester` varchar(66) NOT NULL,
   `morning` int(11) NOT NULL,
-  `night` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `night` int(11) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `attendance`
 --
 
-INSERT INTO `attendance` (`id`, `name`, `admission_no`, `branch`, `semester`, `morning`, `night`) VALUES
-(1, 'John Doe', 'AD12345', 'Computer Science', '', 1, 0),
-(7, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(8, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(9, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(10, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(12, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(13, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(14, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(15, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(16, 'SHEBIN P BIJU', '111', 'mca', '1', 1, 0),
-(17, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1),
-(18, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1);
+INSERT INTO `attendance` (`id`, `name`, `admission_no`, `branch`, `semester`, `morning`, `night`, `date`) VALUES
+(2, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1, '2023-10-29'),
+(3, 'SHEBIN P BIJU', '111', 'mca', '1', 0, 1, '2023-10-29');
 
 -- --------------------------------------------------------
 
@@ -69,7 +60,7 @@ CREATE TABLE `complaint_box` (
   `name` varchar(255) NOT NULL,
   `branch_name` varchar(255) NOT NULL,
   `degree` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `complaint_box`
@@ -85,6 +76,29 @@ INSERT INTO `complaint_box` (`complaint_id`, `topic`, `content`, `admission_no`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `food_feedback`
+--
+
+CREATE TABLE `food_feedback` (
+  `feedback_id` int(11) NOT NULL,
+  `feedback` varchar(255) NOT NULL,
+  `admission_no` varchar(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `branch_name` varchar(255) NOT NULL,
+  `degree` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `food_feedback`
+--
+
+INSERT INTO `food_feedback` (`feedback_id`, `feedback`, `admission_no`, `name`, `branch_name`, `degree`) VALUES
+(0, 'tastey', '111', 'SHEBIN P BIJU', 'mca', 'math'),
+(0, 'a', '111', 'SHEBIN P BIJU', 'mca', 'math');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `food_menu`
 --
 
@@ -94,7 +108,14 @@ CREATE TABLE `food_menu` (
   `lunch_item` varchar(255) DEFAULT NULL,
   `evening_item` varchar(255) DEFAULT NULL,
   `dinner_item` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `food_menu`
+--
+
+INSERT INTO `food_menu` (`menu_id`, `breakfast_item`, `lunch_item`, `evening_item`, `dinner_item`) VALUES
+(1, 'chappathi + chicken curry', 'Veg meals + fish', 'tea + biscuit', 'Biriyaniaa');
 
 -- --------------------------------------------------------
 
@@ -115,7 +136,7 @@ CREATE TABLE `hostel_student_list` (
   `gAddress` text DEFAULT NULL,
   `pincode` varchar(6) DEFAULT NULL,
   `mobile` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hostel_student_list`
@@ -166,17 +187,17 @@ CREATE TABLE `hostel_student_registration` (
   `dAction` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hostel_student_registration`
 --
 
 INSERT INTO `hostel_student_registration` (`id`, `name`, `gender`, `degree`, `yearOfStudy`, `admissionNo`, `semester`, `branch`, `pAddress`, `gAddress`, `pincode`, `mobile`, `gMobile`, `prAddress`, `p1`, `p2`, `other`, `aIncome`, `obcOrOec`, `distance`, `sgpa1`, `sgpa2`, `sgpa3`, `sgpa4`, `sgpa5`, `sgpa6`, `sgpa7`, `sgpa8`, `rank`, `dAction`, `created_at`, `updated_at`) VALUES
-(2, 'SHEBIN P BIJU', 'male', 'math', 2021, '111', 1, 'mca', 'Pullozhathil house', 'ALAMPALLY', '686502', '0999 581 5251', '+917902609679', 'Pullozhathil house\r\nALAMPALLY', 0, 1, 0, '10000.00', 'obcOrOecNo', '123123.00', '2.00', '1.00', '2.00', '1.00', '2.00', '1.00', '9.99', '1.00', 22, 'no', '2023-10-15 04:59:22', '2023-10-15 04:59:22'),
-(7, 'SHEBIN P BIJU', '', '', 0, '1111', 0, '', 'Pullozhathil house', 'ALAMPALLY', '686546', '0999 581 5251', '', 'Pullozhathil house\r\nALAMPALLY', 0, 0, 0, '0.00', '', '13.08', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', '2023-10-15 07:31:55', '2023-10-15 14:16:05'),
-(8, 'Saheba Biju', '', '', 0, '111111', 0, '', 'Pullozhathil House Pampady PO Pampady', 'Kottayam,Kerala', '686502', '09995815251', '', 'Pullozhathil House Pampady PO Pampady\r\nKottayam,Kerala', 1, 0, 0, '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', '2023-10-15 07:39:49', '2023-10-15 14:16:10'),
-(9, '', '', '', 0, '', 0, '', '', '', '', '', '', '', 0, 0, 0, '0.00', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', 0, '', '2023-10-15 17:53:12', '2023-10-15 17:53:12');
+(2, 'SHEBIN P BIJU', 'male', 'math', 2021, '111', 1, 'mca', 'Pullozhathil house', 'ALAMPALLY', '686502', '0999 581 5251', '+917902609679', 'Pullozhathil house\r\nALAMPALLY', 0, 1, 0, 10000.00, 'obcOrOecNo', 123123.00, 2.00, 1.00, 2.00, 1.00, 2.00, 1.00, 9.99, 1.00, 22, 'no', '2023-10-15 04:59:22', '2023-10-15 04:59:22'),
+(7, 'SHEBIN P BIJU', '', '', 0, '1111', 0, '', 'Pullozhathil house', 'ALAMPALLY', '686546', '0999 581 5251', '', 'Pullozhathil house\r\nALAMPALLY', 0, 0, 0, 0.00, '', 13.08, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, '', '2023-10-15 07:31:55', '2023-10-15 14:16:05'),
+(8, 'Saheba Biju', '', '', 0, '111111', 0, '', 'Pullozhathil House Pampady PO Pampady', 'Kottayam,Kerala', '686502', '09995815251', '', 'Pullozhathil House Pampady PO Pampady\r\nKottayam,Kerala', 1, 0, 0, 0.00, '', 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, '', '2023-10-15 07:39:49', '2023-10-15 14:16:10'),
+(9, '', '', '', 0, '', 0, '', '', '', '', '', '', '', 0, 0, 0, 0.00, '', 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0, '', '2023-10-15 17:53:12', '2023-10-15 17:53:12');
 
 -- --------------------------------------------------------
 
@@ -188,7 +209,7 @@ CREATE TABLE `login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `user_type` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `login`
@@ -251,7 +272,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `complaint_box`
@@ -263,7 +284,7 @@ ALTER TABLE `complaint_box`
 -- AUTO_INCREMENT for table `food_menu`
 --
 ALTER TABLE `food_menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `hostel_student_list`
