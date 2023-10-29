@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
     body {
         background-color: #f4f4f4;
@@ -26,28 +28,44 @@
         justify-content: center;
     }
 
-    .btn-role.active {
-        background-color: #007bff;
-        color: #fff;
+    .btn-role {
+        position: relative;
+        margin: 0 10px;
+        font-size: 18px;
+    }
+
+    .btn-role input {
+        display: none;
+    }
+
+    .btn-role label {
+        cursor: pointer;
+    }
+
+    .btn-role .fa {
+        font-size: 36px;
+        display: block;
+    }
+
+    .btn-role.active .fa {
+        color: #007bff;
     }
 
     .form-group {
         margin-bottom: 20px;
     }
-
-    .toast-msg {
-        display: none;
-        position: fixed;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #ff0000;
-        color: #fff;
-        padding: 10px 15px;
-        border-radius: 5px;
-        text-align: center;
-        z-index: 999;
-    }
+    .role-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .role-box label {
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -55,24 +73,28 @@
     <div class="container mt-5">
         <div class="login-container">
             <h2 id="login-title">Students Login</h2>
-            <div class="role-toggle btn-group my-3" data-toggle="buttons">
+            <div class="role-box">
                 <label class="btn btn-role active" id="student-button">
-                    <input type="radio" name="role" id="student" value="student" autocomplete="off" checked> Student
+                    <input type="radio" name="role" id="student" value="student" autocomplete="off" checked>
+                    <i class="fa fa-user-graduate"></i> Student
                 </label>
                 <label class="btn btn-role" id="warden-button">
-                    <input type="radio" name="role" id="warden" value="warden" autocomplete="off"> Warden
+                    <input type="radio" name="role" id="warden" value="warden" autocomplete="off">
+                    <i class="fa fa-user-shield"></i> Warden
                 </label>
                 <label class="btn btn-role" id="mess-secretary-button">
-                    <input type="radio" name="role" id="ms" value="ms" autocomplete="off"> Mess Secretary
+                    <input type="radio" name="role" id="ms" value="ms" autocomplete="off">
+                    <i class="fa fa-utensils"></i> Mess Secretary
                 </label>
                 <label class="btn btn-role" id="hostel-secretary-button">
-                    <input type="radio" name="role" id="hs" value="hs" autocomplete="off"> Hostel Secretary
+                    <input type="radio" name="role" id="hs" value="hs" autocomplete="off">
+                    <i class="fa fa-user"></i> Hostel Secretary
                 </label>
                 <label class="btn btn-role" id="matron-button">
-                    <input type="radio" name="role" id="matron" value="matron" autocomplete="off"> Matron
+                    <input type="radio" name="role" id="matron" value="matron" autocomplete="off">
+                    <i class="fa fa-user-nurse"></i> Matron
                 </label>
             </div>
-            <!-- <form class="mt-3" method="post" action="php/login_process.php"> -->
             <form class="mt-3" onsubmit="return handleLogin()">
                 <div class="form-group mt-4">
                     <input type="text" class="form-control" name="username" id="username" placeholder="Username"
@@ -88,26 +110,24 @@
             <div id="toast" class="toast-msg">Login failed. Please check your credentials.</div>
             <p class="mt-3"><a href="php/hoste_student_registration.php">Register here</a></p>
         </div>
-
     </div>
 
     <script>
-    // Function to show the toast message
     function showToast(message) {
         var toast = document.getElementById('toast');
         toast.innerHTML = message;
         toast.style.display = 'block';
         setTimeout(function() {
             toast.style.display = 'none';
-        }, 2000); // Hide the toast after 5 seconds
+        }, 2000);
     }
 
-    <?php
     // Add this PHP code snippet to display the toast on login failure
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && $total == 0) {
-        echo "showToast('Login failed. Please check your credentials.');";
-    }
-    ?>
+    <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $total == 0) {
+            echo "showToast('Login failed. Please check your credentials.');";
+        }
+        ?>
     </script>
 
     <script>
@@ -130,24 +150,19 @@
         });
     });
     </script>
-
-<script>
+    <script>
     function handleLogin() {
-        // Get form input values
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         var role = document.querySelector('.btn-role.active input').value;
 
-        // Perform AJAX request to login_process.php
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'php/login_process.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    // Check the response from login_process.php
                     if (xhr.responseText === 'success') {
-                        // Successful login, redirect to the appropriate dashboard
                         switch (role) {
                             case 'student':
                                 window.location.href = 'php/dashboard/student_dashboard.php';
@@ -165,12 +180,10 @@
                                 window.location.href = 'php/dashboard/matron_dashboard.php';
                                 break;
                             default:
-                                // Redirect to a default page if the role is not recognized
                                 window.location.href = 'default_dashboard.php';
                                 break;
                         }
                     } else {
-                        // Invalid login, show the toast
                         showToast('Login failed. Please check your credentials.');
                     }
                 } else {
@@ -179,15 +192,12 @@
             }
         };
 
-        // Send the form data to login_process.php
         var formData = 'username=' + username + '&password=' + password + '&role=' + role;
         xhr.send(formData);
 
-        // Prevent the default form submission
         return false;
     }
-</script>
-
+    </script>
 
     <!-- Link to Bootstrap JS (optional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>

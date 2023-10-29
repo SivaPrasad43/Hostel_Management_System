@@ -37,3 +37,17 @@ input, select, textarea{
     align-items: center;
     background-clip:border-box;
 }
+
+.toast-msg {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 999;
+}
