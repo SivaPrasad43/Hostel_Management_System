@@ -7,6 +7,7 @@ include '../connection/connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $attendanceType = $_POST['attendance_type']; // 'morning' or 'night'
+    $currentDate = date('Y-m-d H:i:s'); // Get the current date and time
 
     // Retrieve student details based on the admission number
     $sql = "SELECT * FROM hostel_student_list WHERE admissionNo = ?";
@@ -22,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $semester = $row['semester'];
 
             // Insert the attendance record into the database
-            $insertSql = "INSERT INTO attendance (name, admission_no, branch, semester, $attendanceType) VALUES (?, ?, ?, ?, 1)";
+            $insertSql = "INSERT INTO attendance (name, admission_no, branch, semester, $attendanceType, date) VALUES (?, ?, ?, ?, 1, ?)";
             $insertStmt = $conn->prepare($insertSql);
-            $insertStmt->bind_param("sssi", $name, $admission, $branch, $semester);
+            $insertStmt->bind_param("sssds", $name, $admission, $branch, $semester, $currentDate);
 
             if ($insertStmt->execute()) {
                 echo "Attendance marked successfully.";

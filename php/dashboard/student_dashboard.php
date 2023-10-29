@@ -108,11 +108,14 @@ session_start(); // Start the session
                                 <span class="food-label">Breakfast:</span>
                             </div>
                             <div class="food-name"> <?php echo  $row['breakfast_item']; ?></div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2 feedback-btn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                data-meal="<?php echo htmlspecialchars(json_encode($row)); ?>"
+                                data-meal-type="Breakfast"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
+
                             <div class="food-time">8:00 AM - 9:00 AM</div>
                         </div>
                         <div class="food-item">
@@ -121,11 +124,13 @@ session_start(); // Start the session
                                 <span class="food-label">Lunch:</span>
                             </div>
                             <div class="food-name"><?php echo  $row['lunch_item']; ?></div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2 feedback-btn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                data-meal="<?php echo htmlspecialchars(json_encode($row)); ?>" data-meal-type="Lunch"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
+
                             <div class="food-time">12:00 AM - 01:30 PM</div>
                         </div>
                         <div class="food-item">
@@ -134,11 +139,13 @@ session_start(); // Start the session
                                 <span class="food-label">Evening:</span>
                             </div>
                             <div class="food-name"><?php echo  $row['evening_item']; ?></div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2 feedback-btn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                data-meal="<?php echo htmlspecialchars(json_encode($row)); ?>" data-meal-type="Evening"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
+
                             <div class="food-time">4:00 PM - 5:30 PM</div>
                         </div>
                         <div class="food-item">
@@ -147,18 +154,28 @@ session_start(); // Start the session
                                 <span class="food-label">Dinner:</span>
                             </div>
                             <div class="food-name"><?php echo  $row['dinner_item']; ?></div>
-                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2 feedback-btn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                data-meal="<?php echo htmlspecialchars(json_encode($row)); ?>" data-meal-type="Dinner"
                                 style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                 Give Feedback
                             </button>
+                            <button class="btn btn-small btn-outline-primary btn-rounded mt-2 feedback-btn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal" data-meal-type="Breakfast"
+                                data-meal='<?php echo htmlspecialchars(json_encode($row)); ?>'
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Give Feedback
+                            </button>
+
+
+
                             <div class="food-time">8:00 PM - 9:30 PM</div>
 
                         </div>
                     </div>
                 </div>
                 <div>
-<?php 
+                    <?php 
                     }
                     ?>
                     <!-- Attendence -->
@@ -273,9 +290,29 @@ session_start(); // Start the session
         </div>
     </div>
 
+    <script>
+    // Add a click event handler for the feedback buttons
+    $(document).ready(function() {
+        $('.feedback-btn').click(function() {
+            // Get the meal type and meal details from the data attributes
+            var mealType = $(this).data('meal-type');
+            var mealDetails = JSON.parse($(this).data('meal'));
+
+            // Populate the modal with the meal type and meal details
+            $('#exampleModal .modal-title').text(mealType + ' Feedback');
+            $('#exampleModal textarea[name="feedback"]').val(''); // Clear any previous feedback
+            $('#exampleModal .modal-body .food-details').html(
+                '<p><strong>' + mealType + ':</strong> ' + mealDetails[mealType.toLowerCase() +
+                    '_item'] + '</p>'
+            );
+        });
+    });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+
     </script>
     <script src="../../style/dashboard.js"></script>
 </body>

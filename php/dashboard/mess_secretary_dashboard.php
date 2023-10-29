@@ -10,52 +10,126 @@
     <link rel="stylesheet" href="../../style/dash-style.css">
     <link rel="stylesheet" href="../../style/responsive.css">
     <style>
-        form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/* Add media queries for responsiveness if needed */
-
-@media (max-width: 600px) {
     form {
-        padding: 10px;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
-}
-        </style>
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Add media queries for responsiveness if needed */
+
+    @media (max-width: 600px) {
+        form {
+            padding: 10px;
+        }
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .left {
+        flex: 1;
+        /* Left side takes 1/2 of the space */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .right {
+        flex: 1;
+        /* Right side takes 1/2 of the space */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Style for the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    <!-- ... your existing HTML code ... -->
+
+<style>
+    .box-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .attendance-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .attendance-box {
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .morning-attendance {
+        flex: 1;
+    }
+
+    .night-attendance {
+        flex: 1;
+    }
+</style>
+
+<!-- ... your existing HTML code ... -->
+
+    </style>
 </head>
 
 <body>
@@ -99,10 +173,10 @@ input[type="submit"]:hover {
                     </div>
 
                     <a href="registered_students.php" class="option2 nav-option">
-                            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                                class="nav-img" alt="articles">
-                            <h3> Registered Students</h3>
-                        </a>
+                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                            class="nav-img" alt="articles">
+                        <h3> Registered Students</h3>
+                    </a>
 
                     <div class="nav-option option3">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
@@ -137,6 +211,8 @@ input[type="submit"]:hover {
                 </div>
             </nav>
         </div>
+
+
         <div class="main">
 
             <div class="searchbar2">
@@ -149,10 +225,10 @@ input[type="submit"]:hover {
 
             <div class="box-container">
 
-                
-            </div>  
+
+            </div>
             <form action="../process_food_menu.php" method="post">
-    <?php
+                <?php
     // Include your connection.php file
     include '../../connection/connection.php';
 
@@ -169,34 +245,69 @@ input[type="submit"]:hover {
         }
     ?>
 
-    <input type="hidden" name="menu_id" value="<?php echo $menu_id; ?>">
+                <input type="hidden" name="menu_id" value="<?php echo $menu_id; ?>">
 
-    <label for="breakfast_item">Breakfast Item:</label>
-    <input type="text" name="breakfast_item" id="breakfast_item" value="<?php echo $breakfast_item; ?>" required><br><br>
+                <label for="breakfast_item">Breakfast Item:</label>
+                <input type="text" name="breakfast_item" id="breakfast_item" value="<?php echo $breakfast_item; ?>"
+                    required><br><br>
 
-    <label for="lunch_item">Lunch Item:</label>
-    <input type="text" name="lunch_item" id="lunch_item" value="<?php echo $lunch_item; ?>" required><br><br>
+                <label for="lunch_item">Lunch Item:</label>
+                <input type="text" name="lunch_item" id="lunch_item" value="<?php echo $lunch_item; ?>"
+                    required><br><br>
 
-    <label for="evening_item">Evening Item:</label>
-    <input type="text" name="evening_item" id="evening_item" value="<?php echo $evening_item; ?>" required><br><br>
+                <label for="evening_item">Evening Item:</label>
+                <input type="text" name="evening_item" id="evening_item" value="<?php echo $evening_item; ?>"
+                    required><br><br>
 
-    <label for="dinner_item">Dinner Item:</label>
-    <input type="text" name="dinner_item" id="dinner_item" value="<?php echo $dinner_item; ?>" required><br><br>
+                <label for="dinner_item">Dinner Item:</label>
+                <input type="text" name="dinner_item" id="dinner_item" value="<?php echo $dinner_item; ?>"
+                    required><br><br>
 
-    <input type="submit" value="Add/Update">
-   
-</form>
-<table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Admission No</th>
-            <th>Branch</th>
-            <th>Semester</th>
-            <th>Morning</th>
-            <th>Night</th>
-        </tr>
-        <?php
+                <input type="submit" value="Add/Update">
+
+            </form>
+            <div class="box-container">
+    <div class="attendance-container">
+        <div class="attendance-box morning-attendance">
+            <h3>Morning Attendance Total : </h3>
+            <?php
+            // Include your connection.php file
+            include '../../connection/connection.php';
+
+            // Count the number of attendees in the morning
+            $morningQuery = "SELECT COUNT(*) as morning_count FROM attendance WHERE morning = 1";
+            $morningResult = mysqli_query($conn, $morningQuery);
+            $morningData = mysqli_fetch_assoc($morningResult);
+            $morningCount = $morningData['morning_count'];
+
+            echo "<p> $morningCount</p>";
+            ?>
+        </div>
+        <div class="attendance-box night-attendance">
+            <h3>Night Attendance Total : </h3>
+            <?php
+            // Count the number of attendees at night
+            $nightQuery = "SELECT COUNT(*) as night_count FROM attendance WHERE night = 1";
+            $nightResult = mysqli_query($conn, $nightQuery);
+            $nightData = mysqli_fetch_assoc($nightResult);
+            $nightCount = $nightData['night_count'];
+
+            echo "<p> $nightCount</p>";
+            ?>
+        </div>
+    </div>
+</div>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Admission No</th>
+                    <th>Branch</th>
+                    <th>Semester</th>
+                    <th>Morning</th>
+                    <th>Night</th>
+                </tr>
+                <?php
         // Include your connection.php file
         include '../../connection/connection.php';
 
@@ -206,19 +317,34 @@ input[type="submit"]:hover {
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['name'] . "</td>";
             echo "<td>" . $row['admission_no'] . "</td>";
             echo "<td>" . $row['branch'] . "</td>";
             echo "<td>" . $row['semester'] . "</td>";
-            echo "<td>" . $row['morning'] . "</td>";
-            echo "<td>" . $row['night'] . "</td>";
+            
+            // Check the 'morning' value
+            if ($row['morning'] == 1) {
+                // Display "Present" with a green background
+                echo "<td style='background-color: green;'>Present</td>";
+            } else {
+                // Display "Absent" with a red background
+                echo "<td style='background-color: red;'>Absent</td>";
+            }
+            
+            // Check the 'night' value (you can do the same for 'night' as for 'morning')
+            if ($row['night'] == 1) {
+                echo "<td style='background-color: green;'>Present</td>";
+            } else {
+                echo "<td style='background-color: red;'>Absent</td>";
+            }
+            
             echo "</tr>";
         }
         ?>
-    </table>
+        
+            </table>
 
-            
+
         </div>
     </div>
 
