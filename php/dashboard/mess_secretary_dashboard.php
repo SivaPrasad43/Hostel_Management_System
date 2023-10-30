@@ -96,7 +96,7 @@
         background-color: #f2f2f2;
     }
 
-    < !-- ... your existing HTML code ... --><style>.box-container {
+    .box-container {
         display: flex;
         justify-content: space-between;
     }

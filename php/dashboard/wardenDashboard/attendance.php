@@ -46,7 +46,7 @@ include "../../data_fetch.php";
     </header>
 
     <div class="main-container">
-    <div class="navcontainer">
+        <div class="navcontainer">
             <nav class="nav">
                 <div class="nav-upper-options">
                     <div class="nav-top">
@@ -55,37 +55,37 @@ include "../../data_fetch.php";
                                 class="nav-img" alt="dashboard">
                             <h3> Dashboard</h3>
                         </a>
-    
+
                         <a href="registered_students.php" class="nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
                             <h3> Registered Students</h3>
                         </a>
-    
+
                         <a href="finalized_students.php" class="nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
                             <h3> Finalized Students</h3>
                         </a>
-    
+
                         <a href="attendance.php" class="active nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
                             <h3>Attendance</h3>
                         </a>
-    
+
                         <a href="complaints.php" class="nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
                             <h3>Complaints</h3>
                         </a>
-    
+
                         <a href="foodmenu.php" class="nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
                             <h3>Food Menu</h3>
                         </a>
-    
+
                         <a href="food_feedback.php" class="nav-option">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
                                 class="nav-img" alt="articles">
@@ -100,7 +100,7 @@ include "../../data_fetch.php";
                                 class="nav-img" alt="settings">
                             <h3> Settings</h3>
                         </div>
-    
+
                         <div class="nav-option logout">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
                                 class="nav-img" alt="logout">
@@ -113,6 +113,28 @@ include "../../data_fetch.php";
         </div>
         <div class="main">
 
+            <!-- BOX -->
+            <div class="box-container">
+
+                <div class="box box1">
+                    <div class="text">
+                        <h2 class="topic">Daily Report</h2>
+
+                        <button class="view">Download</button>
+                    </div>
+                </div>
+                <div class="box box4">
+                    <div class="text">
+                        <h2 class="topic">Monthly Report</h2>
+
+                        <button class="view">Download</button>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+
+            <!-- Table -->
             <div class="searchbar2">
                 <input type="text" name="" id="" placeholder="Search">
                 <div class="searchbtn">
@@ -137,9 +159,9 @@ include "../../data_fetch.php";
                         <h3 class="t-op">branch</h3>
                     </div>
 
-<!-- Add the following code after the existing PHP includes -->
-<!-- Add the following code after the existing PHP includes -->
-<?php
+                    <!-- Add the following code after the existing PHP includes -->
+                    <!-- Add the following code after the existing PHP includes -->
+                    <?php
 // Assuming $connection is your database connection variable
 
 // Fetch data from the database
@@ -171,10 +193,10 @@ if ($result) {
 
 
 
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="../../../style/dashboard.js"></script>
