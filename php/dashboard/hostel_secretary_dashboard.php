@@ -134,84 +134,88 @@
                     <button id="searchButton">Search</button>
                 </div>
                 
-                <div class="report-body">
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Admission No</th>
-                            <th>Branch</th>
-                            <th>Semester</th>
-                            <th>Morning</th>
-                            <th>Night</th>
-                        </tr>
-                        <?php
-        
-        // Include your connection.php file
-        include '../../connection/connection.php';
+              
+<div class="report-body">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Admission No</th>
+            <th>Branch</th>
+            <th>Semester</th>
+            <th>Morning</th>
+            <th>Night</th>
+            <th>Mark Confirmation</th> <!-- New column for Mark Confirmation -->
+        </tr>
+        <?php
+            // Include your connection.php file
+            include '../../connection/connection.php';
 
-        // Initialize the searchDate with the current date
-        $searchDate = date("Y-m-d");
+            // Initialize the searchDate with the current date
+            $searchDate = date("Y-m-d");
 
-        // Check if a date is provided in the search
-        if (isset($_GET['searchDate'])) {
-            $searchDate = $_GET['searchDate'];
-        }
-
-        // Select data from the attendance table based on the searchDate
-        $query = "SELECT * FROM attendance WHERE date = '$searchDate'";
-        $result = mysqli_query($conn, $query);
-
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo "<tr>";
-            echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['admission_no'] . "</td>";
-            echo "<td>" . $row['branch'] . "</td>";
-            echo "<td>" . $row['semester'] . "</td>";
-            
-            // Check the 'morning' value
-            if ($row['morning'] == 1) {
-                // Display "Present" with a green background
-                echo "<td style='background-color: green;'>Present</td>";
-            } else {
-                // Display "Absent" with a red background
-                echo "<td style='background-color: red;'>Absent</td>";
+            // Check if a date is provided in the search
+            if (isset($_GET['searchDate'])) {
+                $searchDate = $_GET['searchDate'];
             }
-            
-            // Check the 'night' value (you can do the same for 'night' as for 'morning')
-            if ($row['night'] == 1) {
-                echo "<td style='background-color: green;'>Present</td>";
-            } else {
-                echo "<td style='background-color: red;'>Absent</td>";
+
+            // Select data from the attendance table based on the searchDate
+            $query = "SELECT * FROM attendance WHERE date = '$searchDate'";
+            $result = mysqli_query($conn, $query);
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['admission_no'] . "</td>";
+                echo "<td>" . $row['branch'] . "</td>";
+                echo "<td>" . $row['semester'] . "</td>";
+                
+                // Check the 'morning' value
+                if ($row['morning'] == 1) {
+                    // Display "Present" with a green background
+                    echo "<td style='background-color: green;'>Present</td>";
+                } else {
+                    // Display "Absent" with a red background
+                    echo "<td style='background-color: red;'>Absent</td>";
+                }
+                
+                // Check the 'night' value (you can do the same for 'night' as for 'morning')
+                if ($row['night'] == 1) {
+                    echo "<td style='background-color: green;'>Present</td>";
+                } else {
+                    echo "<td style='background-color: red;'>Absent</td>";
+                }
+
+                // Add a button to mark confirmation
+                echo "<td>";
+                echo "<button class='markConfirmationButton' id='" . $row['hs'] . "'>Mark Confirmation</button>";
+                echo "</td>";
+                echo "</tr>";
             }
-            
-            echo "</tr>";
-        }
         ?>
+    </table>
+</div>
 
-                    </table>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <script src="../../style/dashboard.js"></script>
-    <script>
-        document.getElementById("searchButton").addEventListener("click", function() {
-            // Get the selected date from the input field
-            var searchDate = document.getElementById("searchDate").value;
-
-            // Redirect to the page with the selected date as a parameter
-            window.location.href = "hostel_secretary_dashboard.php?searchDate=" + searchDate;
+<script src="../../style/dashboard.js"></script>
+<script>
+    // JavaScript code for the "Mark Confirmation" button
+    const markConfirmationButtons = document.querySelectorAll('.markConfirmationButton');
+    
+    markConfirmationButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the attendance record ID from the data-id attribute
+            const attendanceId = button.getAttribute('data-id');
+            
+            // Send an AJAX request to update the 'hs' field to 1
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'update_hs.php'); // Create a PHP script to handle the update
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Reload the page to reflect the updated data
+                    location.reload();
+                }
+            };
+            xhr.send('id=' + attendanceId);
         });
-    </script>
-
-</body>
-
-</html>
+    });
+</script>

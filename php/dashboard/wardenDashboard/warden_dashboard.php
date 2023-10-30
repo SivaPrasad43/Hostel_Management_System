@@ -166,55 +166,82 @@ include "../../data_fetch.php";
                 </div>
 
                 <div class="report-body">
-                    <div class="report-topic-heading">
-                        <h3 class="t-op">Name</h3>
-                        <h3 class="t-op">Admission number</h3>
-                        <h3 class="t-op">Year of study</h3>
-                        <h3 class="t-op">semester</h3>
-                        <h3 class="t-op">branch</h3>
-                    </div>
-
-<!-- Add the following code after the existing PHP includes -->
-<!-- Add the following code after the existing PHP includes -->
-<?php
-// Assuming $connection is your database connection variable
-
-// Fetch data from the database
-$query = "SELECT name, admissionNo, semester, branch, yearOfStudy FROM hostel_student_list";
-$result = mysqli_query($conn, $query);
-
-// Check if the query was successful
-if ($result) {
-    // Loop through each row in the result set
-    while ($row = mysqli_fetch_assoc($result)) {
-        // Output the data in the HTML structure for each row
-        echo '<div class="item1">';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['name']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['admissionNo']) . '</h3>';
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Admission No</th>
+                            <th>Branch</th>
+                            <th>Semester</th>
+                            <th>Morning</th>
+                            <th>Night</th>
+                        </tr>
+                        <?php
         
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['yearOfStudy']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['semester']) . '</h3>';
-        echo '<h3 class="t-op-nextlvl">' . htmlspecialchars($row['branch']) . '</h3>';
-        echo '</div>';
-    }
-} else {
-    // Handle the case where the query fails
-    echo 'Error fetching data: ' . mysqli_error($connection);
-}
+        // Include your connection.php file
+        include '../../connection/connection.php';
 
-// Close the database connection
-// mysqli_close($connection);
-?>
+        // Initialize the searchDate with the current date
+        $searchDate = date("Y-m-d");
+
+        // Check if a date is provided in the search
+        if (isset($_GET['searchDate'])) {
+            $searchDate = $_GET['searchDate'];
+        }
+
+        // Select data from the attendance table based on the searchDate
+        $query = "SELECT * FROM attendance WHERE date = '$searchDate'";
+        $result = mysqli_query($conn, $query);
+
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>";
+            echo "<td>" . $row['name'] . "</td>";
+            echo "<td>" . $row['admission_no'] . "</td>";
+            echo "<td>" . $row['branch'] . "</td>";
+            echo "<td>" . $row['semester'] . "</td>";
+            
+            // Check the 'morning' value
+            if ($row['morning'] == 1) {
+                // Display "Present" with a green background
+                echo "<td style='background-color: green;'>Present</td>";
+            } else {
+                // Display "Absent" with a red background
+                echo "<td style='background-color: red;'>Absent</td>";
+            }
+            
+            // Check the 'night' value (you can do the same for 'night' as for 'morning')
+            if ($row['night'] == 1) {
+                echo "<td style='background-color: green;'>Present</td>";
+            } else {
+                echo "<td style='background-color: red;'>Absent</td>";
+            }
+            
+            echo "</tr>";
+        }
+        ?>
+
+                    </table>
 
 
 
-                    </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 
     <script src="../../../style/dashboard.js"></script>
+    <script>
+        document.getElementById("searchButton").addEventListener("click", function() {
+            // Get the selected date from the input field
+            var searchDate = document.getElementById("searchDate").value;
+
+            // Redirect to the page with the selected date as a parameter
+            window.location.href = "hostel_secretary_dashboard.php?searchDate=" + searchDate;
+        });
+    </script>
+
 </body>
 
 </html>
