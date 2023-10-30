@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../style/dash-style.css">
     <link rel="stylesheet" href="../../style/responsive.css">
     <style>
-        /* Style for the table */
+    /* Style for the table */
     table {
         width: 100%;
         border-collapse: collapse;
@@ -32,7 +32,7 @@
         display: flex;
         justify-content: space-between;
     }
-</style>
+    </style>
 </head>
 
 <body>
@@ -170,25 +170,38 @@
                     <h1 class="recent-Articles">Recent Articles</h1>
                     <button class="view">View All</button>
                 </div>
-
+                <div class="search-container">
+                    <input type="date" id="searchDate" placeholder="Select a Date">
+                    <button id="searchButton">Search</button>
+                </div>
+                
                 <div class="report-body">
-                <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Admission No</th>
-                    <th>Branch</th>
-                    <th>Semester</th>
-                    <th>Morning</th>
-                    <th>Night</th>
-                </tr>
-                <?php
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Admission No</th>
+                            <th>Branch</th>
+                            <th>Semester</th>
+                            <th>Morning</th>
+                            <th>Night</th>
+                        </tr>
+                        <?php
+        
         // Include your connection.php file
         include '../../connection/connection.php';
 
-        // Select data from the attendance table
-        $currentDate = date("Y-m-d");
-        $query = "SELECT * FROM attendance WHERE date = '$currentDate'";
+        // Initialize the searchDate with the current date
+        $searchDate = date("Y-m-d");
+
+        // Check if a date is provided in the search
+        if (isset($_GET['searchDate'])) {
+            $searchDate = $_GET['searchDate'];
+        }
+
+        // Select data from the attendance table based on the searchDate
+        $query = "SELECT * FROM attendance WHERE date = '$searchDate'";
         $result = mysqli_query($conn, $query);
+
 
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
@@ -217,19 +230,29 @@
         }
         ?>
 
-            </table>
+                    </table>
 
 
 
-                    
 
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
     <script src="../../style/dashboard.js"></script>
+    <script>
+        document.getElementById("searchButton").addEventListener("click", function() {
+            // Get the selected date from the input field
+            var searchDate = document.getElementById("searchDate").value;
+
+            // Redirect to the page with the selected date as a parameter
+            window.location.href = "hostel_secretary_dashboard.php?searchDate=" + searchDate;
+        });
+    </script>
+
 </body>
 
 </html>
